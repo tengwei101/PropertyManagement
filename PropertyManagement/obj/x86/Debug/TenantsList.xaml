@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="PropertyManagement.TenantsList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PropertyManagement"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <DataTemplate x:Key="TenantItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Source="/Assets/tenant_avatar.png" Width="100" Height="100" Stretch="UniformToFill" Margin="0,0,10,0"/>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="230"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16"/>
+                        <TextBlock Text="{Binding Email}" FontStyle="Italic"/>
+                        <TextBlock Text="{Binding PhoneNumber}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text=" "/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="LeaseStartDate:  "/>
+                            <TextBlock Text="{Binding LeaseStartDate}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="LeaseEndDate:  "/>
+                            <TextBlock Text="{Binding LeaseEndDate}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
+                <ComboBox x:ConnectionId='4' x:Name="ActiveFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10"                                                         >
+                    <ComboBoxItem Content="All" />
+                    <ComboBoxItem Content="Active" />
+                    <ComboBoxItem Content="Inactive" />
+                </ComboBox>
+                <Button x:ConnectionId='5' x:Name="AddButton" Content="Add Tenant" Margin="0,10,10,10"                        />
+                <Button x:ConnectionId='6' x:Name="BackButton" Content="Back" Margin="0,10,10,10"                         />
+
+            </StackPanel>
+            <ListView x:ConnectionId='3' x:Name="TenantListView" Grid.Row="1" Margin="10" ItemTemplate="{StaticResource TenantItemTemplate}"                                                   />
+
+        </Grid>
+
+
+    </Grid>
+</Page>
+
