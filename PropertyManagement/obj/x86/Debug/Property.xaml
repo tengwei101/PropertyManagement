@@ -69,7 +69,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0">
-            <ComboBox x:ConnectionId='4' x:Name="PropertyStatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10"                                                                 >
+            <ComboBox x:ConnectionId='4' x:Name="PropertyStatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10"                                                                  SelectedIndex="0">
                 <ComboBoxItem Content="All" />
                 <ComboBoxItem Content="Available" />
                 <ComboBoxItem Content="Sold" />

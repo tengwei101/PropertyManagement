@@ -9,43 +9,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+        <StackPanel Margin="15" Orientation="Vertical">
+            <TextBlock Text="Property Image" Margin="0,0,0,10" />
+            <Image x:Name="PropertyImageView" Margin="0,0,0,10" Stretch="UniformToFill" MaxHeight="200" MaxWidth="200" />
+            <Button x:Name="UploadImageButton" Content="Upload Image" Margin="0,0,0,10" Click="UploadImageButton_Click" />
 
+            <TextBlock Text="Property Name" Margin="0,10,0,0" />
+            <TextBox x:Name="PropertyNameTextBox" Margin="0,0,0,10" />
 
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="Property Image" Grid.Row="0" Margin="10,10,0,0" />
-            <Button x:Name="UploadImageButton" Content="Upload Image" Grid.Row="1" Margin="10" Click="UploadImageButton_Click" />
-
-            <TextBlock Text="Property Name" Grid.Row="2" Margin="10,10,0,0" />
-            <TextBox x:Name="PropertyNameTextBox" Grid.Row="3" Margin="10" />
-
-            <TextBlock Text="Property Type" Grid.Row="4" Margin="10,10,0,0" />
-            <ComboBox x:Name="PropertyTypeComboBox" Grid.Row="5" Margin="10">
+            <TextBlock Text="Property Type" Margin="0,10,0,0" />
+            <ComboBox x:Name="PropertyTypeComboBox" Margin="0,0,0,10">
                 <ComboBoxItem Content="Apartment" />
                 <ComboBoxItem Content="House" />
                 <ComboBoxItem Content="Commercial" />
@@ -53,40 +26,39 @@
                 <ComboBoxItem Content="Office Space" />
             </ComboBox>
 
-            <TextBlock Text="Address" Grid.Row="6" Margin="10,10,0,0" />
-            <TextBox x:Name="AddressTextBox" Grid.Row="7" Margin="10" />
+            <TextBlock Text="Address" Margin="0,10,0,0" />
+            <TextBox x:Name="AddressTextBox" Margin="0,0,0,10" />
 
-            <TextBlock Text="Number of Bedrooms" Grid.Row="8" Margin="10,10,0,0" />
-            <TextBox x:Name="BedroomsTextBox" Grid.Row="9" Margin="10" />
+            <TextBlock Text="Number of Bedrooms" Margin="0,10,0,0" />
+            <TextBox x:Name="BedroomsTextBox" Margin="0,0,0,10" />
 
-            <TextBlock Text="Number of Bathrooms" Grid.Row="10" Margin="10,10,0,0" />
-            <TextBox x:Name="BathroomsTextBox" Grid.Row="11" Margin="10" />
+            <TextBlock Text="Number of Bathrooms" Margin="0,10,0,0" />
+            <TextBox x:Name="BathroomsTextBox" Margin="0,0,0,10" />
 
-            <TextBlock Text="Square Feet" Grid.Row="12" Margin="10,10,0,0" />
-            <TextBox x:Name="SquareFeetTextBox" Grid.Row="13" Margin="10" />
+            <TextBlock Text="Square Feet" Margin="0,10,0,0" />
+            <TextBox x:Name="SquareFeetTextBox" Margin="0,0,0,10" />
 
-            <TextBox x:Name="DescriptionTextBox" Grid.Row="14" Header="Description" Margin="10" AcceptsReturn="True" TextWrapping="Wrap" Height="100"/>
+            <TextBox x:Name="DescriptionTextBox" Header="Description" Margin="0,10,0,10" AcceptsReturn="True" TextWrapping="Wrap" Height="100"/>
 
-            <TextBlock Text="Property Status" Grid.Row="16" Margin="10,10,0,0" />
-            <ComboBox x:Name="PropertyStatusComboBox" Grid.Row="17" Margin="10">
+            <TextBlock Text="Property Status" Margin="0,10,0,0" />
+            <ComboBox x:Name="PropertyStatusComboBox" Margin="0,0,0,10">
                 <ComboBoxItem Content="Available" />
                 <ComboBoxItem Content="Sold" />
                 <ComboBoxItem Content="Rented" />
                 <ComboBoxItem Content="Under Contract" />
             </ComboBox>
 
-            <TextBlock Text="Owner" Grid.Row="18" Margin="10,10,0,0" />
-            <TextBox x:Name="OwnerTextBox" Grid.Row="19" Margin="10" />
+            <TextBlock Text="Owner" Margin="0,10,0,0" />
+            <TextBox x:Name="OwnerTextBox" Margin="0,0,0,10" />
 
-            <TextBlock Text="Price" Grid.Row="20" Margin="10,10,0,0" />
-            <TextBox x:Name="PriceTextBox" Grid.Row="21" Margin="10" />
+            <TextBlock Text="Price" Margin="0,10,0,0" />
+            <TextBox x:Name="PriceTextBox" Margin="0,0,0,10" />
 
-            <StackPanel Orientation="Horizontal" Grid.Row="22">
-                <Button x:Name="SubmitButton" Content="Submit" Grid.Row="22" HorizontalAlignment="Right" Margin="10" Click="SubmitButton_Click" />
-                <Button x:Name="BackButton" Content="Back" Grid.Row="22" HorizontalAlignment="Right" Margin="10" Click="BackButton_Click" RenderTransformOrigin="0.508,0.5" />
-
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Right" Margin="10,0,10,0" Click="SubmitButton_Click" />
+                <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Right" Margin="10,0,10,0" Click="BackButton_Click" RenderTransformOrigin="0.508,0.5" />
             </StackPanel>
-        </Grid>
+        </StackPanel>
     </ScrollViewer>
 </Page>
 

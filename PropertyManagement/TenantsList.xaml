@@ -56,7 +56,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
-                <ComboBox x:Name="ActiveFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10" SelectionChanged="ActiveFilterComboBox_SelectionChanged">
+                <ComboBox x:Name="ActiveFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10" SelectionChanged="ActiveFilterComboBox_SelectionChanged" SelectedIndex="0">
                     <ComboBoxItem Content="All" />
                     <ComboBoxItem Content="Active" />
                     <ComboBoxItem Content="Inactive" />

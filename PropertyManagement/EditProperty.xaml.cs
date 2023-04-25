@@ -61,6 +61,7 @@ namespace PropertyManagement
                 PropertyStatusComboBox.SelectedItem = GetComboBoxItemByContent(PropertyStatusComboBox, _propertyToEdit.PropertyStatus);
                 OwnerTextBox.Text = _propertyToEdit.Owner;
                 PriceTextBox.Text = _propertyToEdit.Price.ToString();
+                LoadImageFromUrlAsync(_propertyToEdit.ImageUrl);
             }
         }
 
@@ -111,6 +112,39 @@ namespace PropertyManagement
             }
         }
 
+        private async Task LoadImageFromUrlAsync(string imageUrl)
+        {
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                try
+                {
+                    using (var httpClient = new HttpClient())
+                    {
+                        HttpResponseMessage response = await httpClient.GetAsync(imageUrl);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            using (InMemoryRandomAccessStream imageStream = new InMemoryRandomAccessStream())
+                            {
+                                await response.Content.CopyToAsync(imageStream.AsStreamForWrite()).ConfigureAwait(false);
+                                await imageStream.FlushAsync(); // Removed ConfigureAwait(false) here
+                                imageStream.Seek(0);
+
+                                BitmapImage bitmapImage = new BitmapImage();
+                                await bitmapImage.SetSourceAsync(imageStream);
+                                PropertyImageView.Source = bitmapImage;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DisplayDialog("Error", ex.Message);
+                }
+            }
+        }
+
+
+
         private async Task UpdatePropertyInFirebaseAsync(PropertyItem updatedProperty)
         {
             // Serialize the updated property
@@ -152,6 +186,7 @@ namespace PropertyManagement
                 {
                     BitmapImage bitmapImage = new BitmapImage();
                     await bitmapImage.SetSourceAsync(fileStream);
+                    PropertyImageView.Source = bitmapImage;
                     // You can add an Image control in the XAML to display the image
                 }
             }

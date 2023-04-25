@@ -60,15 +60,22 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0">
-            <ComboBox x:ConnectionId='4' x:Name="RequestStatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10"                                                                >
+            <ComboBox x:ConnectionId='4' x:Name="RequestStatusFilterComboBox" Header="Status" Margin="0,0,10,10"                                                                 SelectedIndex="0">
                 <ComboBoxItem Content="All" />
                 <ComboBoxItem Content="Pending"/>
                 <ComboBoxItem Content="In Progress"/>
                 <ComboBoxItem Content="Completed"/>
             </ComboBox>
 
-            <Button x:ConnectionId='5' x:Name="AddButton" Content="Add Request" HorizontalAlignment="Right" Margin="20,10,10,10"                        />
-            <Button x:ConnectionId='6' x:Name="BackButton" Content="Back" HorizontalAlignment="Right" Margin="20,10,10,10"                         />
+            <ComboBox x:ConnectionId='5' x:Name="PriorityFilterComboBox" Header="Priority" Margin="0,0,0,10"                                                            SelectedIndex="0">
+                <ComboBoxItem Content="All" />
+                <ComboBoxItem Content="Low"/>
+                <ComboBoxItem Content="Medium"/>
+                <ComboBoxItem Content="High"/>
+            </ComboBox>
+
+            <Button x:ConnectionId='6' x:Name="AddButton" Content="Add Request" HorizontalAlignment="Right" Margin="20,10,10,10"                        />
+            <Button x:ConnectionId='7' x:Name="BackButton" Content="Back" HorizontalAlignment="Right" Margin="20,10,10,10"                         />
 
         </StackPanel>
 

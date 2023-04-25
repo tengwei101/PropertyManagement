@@ -60,11 +60,18 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0">
-            <ComboBox x:Name="RequestStatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10" SelectionChanged="RequestStatusFilterComboBox_SelectionChanged">
+            <ComboBox x:Name="RequestStatusFilterComboBox" Header="Status" Margin="0,0,10,10" SelectionChanged="RequestStatusFilterComboBox_SelectionChanged" SelectedIndex="0">
                 <ComboBoxItem Content="All" />
                 <ComboBoxItem Content="Pending"/>
                 <ComboBoxItem Content="In Progress"/>
                 <ComboBoxItem Content="Completed"/>
+            </ComboBox>
+
+            <ComboBox x:Name="PriorityFilterComboBox" Header="Priority" Margin="0,0,0,10" SelectionChanged="PriorityFilterComboBox_SelectionChanged" SelectedIndex="0">
+                <ComboBoxItem Content="All" />
+                <ComboBoxItem Content="Low"/>
+                <ComboBoxItem Content="Medium"/>
+                <ComboBoxItem Content="High"/>
             </ComboBox>
 
             <Button x:Name="AddButton" Content="Add Request" HorizontalAlignment="Right" Margin="20,10,10,10" Click="AddButton_Click"/>

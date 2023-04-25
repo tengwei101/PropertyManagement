@@ -43,6 +43,7 @@ namespace PropertyManagement
                 {
                     BitmapImage bitmapImage = new BitmapImage();
                     await bitmapImage.SetSourceAsync(fileStream);
+                    PropertyImageView.Source = bitmapImage;
                     // You can add an Image control in the XAML to display the image
                 }
             }

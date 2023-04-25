@@ -26,18 +26,26 @@ namespace PropertyManagement
     public sealed partial class MaintenanceAndRepair : Page
     {
 
+        private bool _isPageLoaded = false;
+
         public MaintenanceAndRepair()
         {
             this.InitializeComponent();
+            this.Loaded += MaintenanceAndRepair_Loaded;
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        private async void MaintenanceAndRepair_Loaded(object sender, RoutedEventArgs e)
         {
-            base.OnNavigatedTo(e);
+            _isPageLoaded = true;
             await LoadMaintenanceRequestsAsync();
         }
 
-        private async Task LoadMaintenanceRequestsAsync(string requestStatusFilter = "All")
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+        }
+
+        private async Task LoadMaintenanceRequestsAsync(string requestStatusFilter = "All", string priorityFilter = "All")
         {
             try
             {
@@ -57,16 +65,23 @@ namespace PropertyManagement
                     return kvp.Value;
                 }).ToList();
 
-                // Filter tenants based on the tenantStatusFilter
+                // Filter requests based on the property
+                requests = requests.Where(t => t.PropertyId == GlobalData.property.Id).ToList();
+
+                // Filter requests based on the requestStatusFilter
                 if (requestStatusFilter != "All")
                 {
                     requests = requests.Where(t => t.Status == requestStatusFilter).ToList();
                 }
 
+                // Filter requests based on the priorityFilter
+                if (priorityFilter != "All")
+                {
+                    requests = requests.Where(t => t.Priority == priorityFilter).ToList();
+                }
 
-                requests = requests.Where(t => t.PropertyId == GlobalData.property.Id).ToList();
 
-                // Set the ItemsSource property of the TenantListView
+                // Set the ItemsSource property of the MaintenanceRequestView
                 MaintenanceRequestView.ItemsSource = requests;
             }
             catch (Exception ex)
@@ -76,6 +91,7 @@ namespace PropertyManagement
         }
 
 
+
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(AddMaintenanceRequest));
@@ -83,8 +99,11 @@ namespace PropertyManagement
 
         private async void RequestStatusFilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!_isPageLoaded || RequestStatusFilterComboBox.SelectedItem == null || PriorityFilterComboBox.SelectedItem == null) return;
+
             string statusFilter = (RequestStatusFilterComboBox.SelectedItem as ComboBoxItem).Content.ToString();
-            await LoadMaintenanceRequestsAsync(statusFilter);
+            string priorityFilter = (PriorityFilterComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+            await LoadMaintenanceRequestsAsync(statusFilter, priorityFilter);
         }
 
         private void MaintenanceRequestView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -116,5 +135,15 @@ namespace PropertyManagement
         {
             Frame.Navigate(typeof(PropertyDetails));
         }
+
+        private async void PriorityFilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (RequestStatusFilterComboBox.SelectedItem == null || PriorityFilterComboBox.SelectedItem == null) return;
+
+            string statusFilter = (RequestStatusFilterComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+            string priorityFilter = (PriorityFilterComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+            await LoadMaintenanceRequestsAsync(statusFilter, priorityFilter);
+        }
+
     }
 }

@@ -8,60 +8,63 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
 
-        <TextBlock x:Name="TenantNameTextBlock" Grid.Row="0" Text="{Binding Name}" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" Margin="0,10"/>
+            <TextBlock x:Name="TenantNameTextBlock" Grid.Row="0" Text="{Binding Name}" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" Margin="0,10"/>
 
-        <ScrollViewer Grid.Row="1" Margin="10">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Date of Birth: "/>
-                    <TextBlock Text="{Binding DateOfBirth}" Margin="5,0,0,0"/>
+            <ScrollViewer Grid.Row="1" Margin="10">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBlock Text="Date of Birth: "/>
+                        <TextBlock Text="{Binding DateOfBirth}" Margin="5,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBlock Text="Email: "/>
+                        <TextBlock Text="{Binding Email}" Margin="5,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBlock Text="Phone Number: "/>
+                        <TextBlock Text="{Binding PhoneNumber}" Margin="5,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBlock Text="Lease Start Date: "/>
+                        <TextBlock Text="{Binding LeaseStartDate}" Margin="5,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBlock Text="Lease End Date: "/>
+                        <TextBlock Text="{Binding LeaseEndDate}" Margin="5,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBlock Text="Rent Amount: RM"/>
+                        <TextBlock Text="{Binding RentAmount}" Margin="5,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBlock Text="Rent Payment Frequency: "/>
+                        <TextBlock Text="{Binding RentPaymentFrequency}" Margin="5,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                        <TextBlock Text="Active: " />
+                        <CheckBox x:Name="ActiveCheckBox" IsChecked="{Binding IsActiveTenant, Mode=TwoWay}" Margin="5,0,0,0" Checked="ActiveCheckBox_Checked" Unchecked="ActiveCheckBox_Unchecked" />
+                    </StackPanel>
+                    <Image x:Name="ContractFileImage" Height="500" Margin="0,10,0,0" />
+
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Email: "/>
-                    <TextBlock Text="{Binding Email}" Margin="5,0,0,0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Phone Number: "/>
-                    <TextBlock Text="{Binding PhoneNumber}" Margin="5,0,0,0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Lease Start Date: "/>
-                    <TextBlock Text="{Binding LeaseStartDate}" Margin="5,0,0,0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Lease End Date: "/>
-                    <TextBlock Text="{Binding LeaseEndDate}" Margin="5,0,0,0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Rent Amount: RM"/>
-                    <TextBlock Text="{Binding RentAmount}" Margin="5,0,0,0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Rent Payment Frequency: "/>
-                    <TextBlock Text="{Binding RentPaymentFrequency}" Margin="5,0,0,0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                    <TextBlock Text="Active: " />
-                    <CheckBox x:Name="ActiveCheckBox" IsChecked="{Binding IsActiveTenant, Mode=TwoWay}" Margin="5,0,0,0" Checked="ActiveCheckBox_Checked" Unchecked="ActiveCheckBox_Unchecked" />
-                </StackPanel>
-                <Image x:Name="ContractFileImage" Height="300" Margin="0,10,0,0" />
+            </ScrollViewer>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="100">
+                <Button Content="Download Contract" Click="DownloadFileButton_Click" Margin="0,0,10,0"/>
+                <Button Content="Edit" Click="EditButton_Click" Margin="0,0,10,0"/>
+                <Button Content="Delete" Click="DeleteButton_Click" Margin="0,0,10,0"/>
+                <Button Content="Back" Click="BackButton_Click"/>
 
             </StackPanel>
-        </ScrollViewer>
+        </Grid>
+    </ScrollViewer>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="100">
-            <Button Content="Download Contract" Click="DownloadFileButton_Click" Margin="0,0,10,0"/>
-            <Button Content="Edit" Click="EditButton_Click" Margin="0,0,10,0"/>
-            <Button Content="Delete" Click="DeleteButton_Click" Margin="0,0,10,0"/>
-            <Button Content="Back" Click="BackButton_Click"/>
-
-        </StackPanel>
-    </Grid>
 </Page>
