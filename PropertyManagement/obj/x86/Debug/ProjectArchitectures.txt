@@ -1,1 +1,1 @@
-C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\PropertyManagement.csproj;x86
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\PropertyManagement.csproj;x86

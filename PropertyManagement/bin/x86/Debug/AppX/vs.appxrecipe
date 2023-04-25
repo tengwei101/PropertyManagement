@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>a3f48b6a-371e-40ae-802c-54245ea0c25d</PackageIdentityName>
     <PackageIdentityPublisher>CN=Acer</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>4CF7DC4BA23DABD756A05266E29559257B58C53270C7F08D06E3DB343F91F61C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>a3f48b6a-371e-40ae-802c-54245ea0c25d_1.0.0.0_x86__82d2pad1nne8a</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>a3f48b6a-371e-40ae-802c-54245ea0c25d_82d2pad1nne8a!App</RegisteredUserModeAppID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-25T14:26:58.759</Modified>
+      <Modified>2023-04-25T14:50:17.171</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\PropertyManagement.exe">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\PropertyManagement.exe">
       <PackagePath>entrypoint\PropertyManagement.exe</PackagePath>
-      <Modified>2023-04-25T14:26:57.758</Modified>
+      <Modified>2023-04-25T14:50:15.911</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\.nuget\packages\firebaseauthentication.net\4.0.2\lib\netstandard2.0\Firebase.Auth.dll">
       <PackagePath>Firebase.Auth.dll</PackagePath>
@@ -74,123 +74,123 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2020-12-01T20:52:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\maintenance_icon.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\maintenance_icon.png">
       <PackagePath>Assets\maintenance_icon.png</PackagePath>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-25T05:28:33.121</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\tenant_avatar.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\tenant_avatar.png">
       <PackagePath>Assets\tenant_avatar.png</PackagePath>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-24T10:48:15.807</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-04T10:23:11.164</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-04T10:23:11.167</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-04T10:23:11.168</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-04T10:23:11.169</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-04T10:23:11.170</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-04T10:23:11.172</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-04T10:23:11.173</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2023-04-25T07:22:23.000</Modified>
+      <Modified>2023-04-23T11:23:07.553</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\PropertyManagement.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\PropertyManagement.xr.xml">
       <PackagePath>PropertyManagement.xr.xml</PackagePath>
-      <Modified>2023-04-25T13:15:04.643</Modified>
+      <Modified>2023-04-25T06:17:40.865</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.529</Modified>
+      <Modified>2023-04-25T14:50:15.537</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\AddMaintenanceRequest.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddMaintenanceRequest.xbf">
       <PackagePath>AddMaintenanceRequest.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.529</Modified>
+      <Modified>2023-04-25T14:50:15.538</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\AddProperty.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddProperty.xbf">
       <PackagePath>AddProperty.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.529</Modified>
+      <Modified>2023-04-25T14:50:15.538</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\AddTenant.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddTenant.xbf">
       <PackagePath>AddTenant.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.530</Modified>
+      <Modified>2023-04-25T14:50:15.538</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\EditMaintenanceRequest.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditMaintenanceRequest.xbf">
       <PackagePath>EditMaintenanceRequest.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.530</Modified>
+      <Modified>2023-04-25T14:50:15.538</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\EditProperty.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditProperty.xbf">
       <PackagePath>EditProperty.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.530</Modified>
+      <Modified>2023-04-25T14:50:15.538</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\EditTenant.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditTenant.xbf">
       <PackagePath>EditTenant.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.530</Modified>
+      <Modified>2023-04-25T14:50:15.538</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.530</Modified>
+      <Modified>2023-04-25T14:50:15.539</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\MaintenanceAndRepair.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\MaintenanceAndRepair.xbf">
       <PackagePath>MaintenanceAndRepair.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.530</Modified>
+      <Modified>2023-04-25T14:50:15.539</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\MaintenanceRequestDetails.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\MaintenanceRequestDetails.xbf">
       <PackagePath>MaintenanceRequestDetails.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.530</Modified>
+      <Modified>2023-04-25T14:50:15.539</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\Property.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\Property.xbf">
       <PackagePath>Property.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.531</Modified>
+      <Modified>2023-04-25T14:50:15.539</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\PropertyDetails.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\PropertyDetails.xbf">
       <PackagePath>PropertyDetails.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.531</Modified>
+      <Modified>2023-04-25T14:50:15.539</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\TenantDetails.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\TenantDetails.xbf">
       <PackagePath>TenantDetails.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.531</Modified>
+      <Modified>2023-04-25T14:50:15.540</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\TenantsList.xbf">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\TenantsList.xbf">
       <PackagePath>TenantsList.xbf</PackagePath>
-      <Modified>2023-04-25T14:26:57.531</Modified>
+      <Modified>2023-04-25T14:50:15.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2020-12-01T18:52:06.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-04-25T13:15:05.993</Modified>
+      <Modified>2023-04-25T06:18:53.778</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\Core\PropertyManagement.exe">
+    <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\Core\PropertyManagement.exe">
       <PackagePath>PropertyManagement.exe</PackagePath>
-      <Modified>2023-04-25T14:26:58.750</Modified>
+      <Modified>2023-04-25T14:50:17.165</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

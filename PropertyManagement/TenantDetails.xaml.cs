@@ -199,7 +199,7 @@ namespace PropertyManagement
 
         private async void DownloadFileButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedTenant != null)
+            if (_selectedTenant.ContractFile != "")
             {
                 string localFilename = $"{_selectedTenant.Name}-ContractFile.pdf"; // Set the file name as per your requirement
 
@@ -240,6 +240,10 @@ namespace PropertyManagement
                     // Notify user about the downloaded file
                     DisplayDialog("Download Completed", $"The contract file has been downloaded to the selected folder as {localFile.Name}");
                 }
+            }
+            else
+            {
+                DisplayDialog("Missing File", "This Tenant has no contract file.");
             }
         }
 
