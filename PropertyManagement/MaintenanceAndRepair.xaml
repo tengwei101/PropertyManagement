@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="PropertyManagement.MaintenanceAndRepair"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PropertyManagement"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <local:EmptyImageUrlToDefaultImageConverter x:Key="EmptyImageUrlToDefaultImageConverter"/>
+        <DataTemplate x:Key="MaintenanceRequestTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Source="{Binding ImageUrl, Converter={StaticResource EmptyImageUrlToDefaultImageConverter}}" Width="100" Height="100" Stretch="UniformToFill" Margin="0,0,10,0"/>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="{Binding TenantName}" FontWeight="Bold" FontSize="16"/>
+                        <TextBlock Text="{Binding Priority}" FontStyle="Italic"/>
+                        <TextBlock Text="{Binding Status}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text=" "/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Submission Date: "/>
+                            <TextBlock Text="{Binding SubmissionDate}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Completion Date: "/>
+                            <TextBlock Text="{Binding CompletionDate}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0">
+            <ComboBox x:Name="RequestStatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10" SelectionChanged="RequestStatusFilterComboBox_SelectionChanged">
+                <ComboBoxItem Content="All" />
+                <ComboBoxItem Content="Pending"/>
+                <ComboBoxItem Content="In Progress"/>
+                <ComboBoxItem Content="Completed"/>
+            </ComboBox>
+
+            <Button x:Name="AddButton" Content="Add Request" HorizontalAlignment="Right" Margin="20,10,10,10" Click="AddButton_Click"/>
+            <Button x:Name="BackButton" Content="Back" HorizontalAlignment="Right" Margin="20,10,10,10" Click="BackButton_Click"/>
+
+        </StackPanel>
+
+        <ListView x:Name="MaintenanceRequestView" Grid.Row="1" Margin="10" ItemTemplate="{StaticResource MaintenanceRequestTemplate}" SelectionChanged="MaintenanceRequestView_SelectionChanged"/>
+    </Grid>
+</Page>

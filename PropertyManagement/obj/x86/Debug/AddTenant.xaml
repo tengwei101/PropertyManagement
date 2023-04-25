@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="PropertyManagement.AddTenant"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PropertyManagement"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Add Tenant" FontWeight="Bold" FontSize="24" Margin="20"/>
+
+            <StackPanel Grid.Row="1" Margin="20">
+                <TextBox x:ConnectionId='4' x:Name="NameTextBox" Header="Name" Margin="0,0,0,10"/>
+                <TextBox x:ConnectionId='5' x:Name="EmailTextBox" Header="Email" Margin="0,0,0,10"/>
+                <TextBox x:ConnectionId='6' x:Name="PhoneNumberTextBox" Header="Phone Number" Margin="0,0,0,10"/>
+                <DatePicker x:ConnectionId='7' x:Name="DateOfBirthDatePicker" Header="Date of Birth" Margin="0,0,0,10"/>
+                <DatePicker x:ConnectionId='8' x:Name="LeaseStartDatePicker" Header="Lease Start Date" Margin="0,0,0,10"/>
+                <DatePicker x:ConnectionId='9' x:Name="LeaseEndDatePicker" Header="Lease End Date" Margin="0,0,0,10"/>
+                <TextBox x:ConnectionId='10' x:Name="RentAmountTextBox" Header="Rent Amount" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <ComboBox x:ConnectionId='14' x:Name="RentPaymentFrequencyComboBox" Header="Rent Payment Frequency" Margin="0,0,100,10">
+                        <ComboBoxItem Content="Weekly"/>
+                        <ComboBoxItem Content="Bi-Weekly"/>
+                        <ComboBoxItem Content="Monthly"/>
+                        <ComboBoxItem Content="Quarterly"/>
+                        <ComboBoxItem Content="Yearly"/>
+                    </ComboBox>
+                    <CheckBox x:ConnectionId='15' x:Name="IsActiveTenantCheckBox" Content="Is Active Tenant?" Margin="0,0,0,10"/>
+                </StackPanel>
+                <!-- Add this within the StackPanel after the IsActiveTenantCheckBox element -->
+                <StackPanel Margin="0,0,0,10">
+                    <TextBlock Text="Contract File" />
+                    <Button x:ConnectionId='11' x:Name="ContractFileButton" Content="Select Contract File"                                  />
+                    <TextBlock x:ConnectionId='12' x:Name="SelectedContractFileName" />
+                    <Image x:ConnectionId='13' x:Name="ContractFileImage" Height="300" Margin="0,10,0,0" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <Button x:ConnectionId='2' x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Right" Margin="10"                            />
+                <Button x:ConnectionId='3' x:Name="BackButton" Content="Back" HorizontalAlignment="Right" Margin="10"                          RenderTransformOrigin="0.508,0.5" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+    
+</Page>
+
