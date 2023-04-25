@@ -1,19 +1,39 @@
 ﻿using Newtonsoft.Json;
+<<<<<<< HEAD
+=======
+using Newtonsoft.Json.Linq;
+>>>>>>> main2
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+<<<<<<< HEAD
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+=======
+using System.Net.Http.Headers;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.Data.Pdf;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
+>>>>>>> main2
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+<<<<<<< HEAD
+=======
+using Windows.UI.Xaml.Media.Imaging;
+>>>>>>> main2
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,6 +46,11 @@ namespace PropertyManagement
     public sealed partial class EditTenant : Page
     {
         private TenantItem selectedTenant;
+<<<<<<< HEAD
+=======
+        private StorageFile _selectedContractFile;
+
+>>>>>>> main2
         public EditTenant()
         {
             this.InitializeComponent();
@@ -48,6 +73,43 @@ namespace PropertyManagement
                 RentAmountTextBox.Text = selectedTenant.RentAmount.ToString();
                 SetRentPaymentFrequency(selectedTenant.RentPaymentFrequency);
                 IsActiveTenantCheckBox.IsChecked = selectedTenant.IsActiveTenant;
+<<<<<<< HEAD
+=======
+                LoadContractFileAsync(selectedTenant.ContractFile);
+            }
+        }
+
+        private async Task LoadContractFileAsync(string contractFileUrl)
+        {
+            if (!string.IsNullOrEmpty(contractFileUrl))
+            {
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync(contractFileUrl);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                        {
+                            await response.Content.CopyToAsync(stream.AsStreamForWrite());
+
+                            PdfDocument pdfDocument = await PdfDocument.LoadFromStreamAsync(stream);
+                            if (pdfDocument.PageCount > 0)
+                            {
+                                using (PdfPage pdfPage = pdfDocument.GetPage(0))
+                                {
+                                    BitmapImage imageSource = new BitmapImage();
+                                    using (InMemoryRandomAccessStream memoryStream = new InMemoryRandomAccessStream())
+                                    {
+                                        await pdfPage.RenderToStreamAsync(memoryStream);
+                                        await imageSource.SetSourceAsync(memoryStream);
+                                    }
+                                    ContractFileImage.Source = imageSource;
+                                }
+                            }
+                        }
+                    }
+                }
+>>>>>>> main2
             }
         }
 
@@ -76,6 +138,10 @@ namespace PropertyManagement
 
         private async void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
+=======
+            string contractFile = _selectedContractFile != null ? await UploadContractFileToFirebaseStorageAsync(_selectedContractFile) : selectedTenant.ContractFile;
+>>>>>>> main2
             // Update the selectedTenant object with the new values from the controls
             selectedTenant.Name = NameTextBox.Text;
             selectedTenant.Email = EmailTextBox.Text;
@@ -86,6 +152,13 @@ namespace PropertyManagement
             selectedTenant.RentAmount = double.Parse(RentAmountTextBox.Text);
             selectedTenant.RentPaymentFrequency = (RentPaymentFrequencyComboBox.SelectedItem as ComboBoxItem).Content.ToString();
             selectedTenant.IsActiveTenant = IsActiveTenantCheckBox.IsChecked.Value;
+<<<<<<< HEAD
+=======
+            if (!string.IsNullOrEmpty(contractFile))
+            {
+                selectedTenant.ContractFile = contractFile;
+            }
+>>>>>>> main2
 
             try
             {
@@ -124,6 +197,80 @@ namespace PropertyManagement
             }
         }
 
+<<<<<<< HEAD
+=======
+        private async void ContractFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker picker = new FileOpenPicker
+            {
+                ViewMode = PickerViewMode.Thumbnail,
+                SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
+                FileTypeFilter = { ".pdf" }
+            };
+
+            _selectedContractFile = await picker.PickSingleFileAsync();
+            if (_selectedContractFile != null)
+            {
+                SelectedContractFileName.Text = _selectedContractFile.Name;
+
+                // Display the first page of the PDF file
+                using (IRandomAccessStreamWithContentType stream = await _selectedContractFile.OpenReadAsync())
+                {
+                    PdfDocument pdfDocument = await PdfDocument.LoadFromStreamAsync(stream);
+                    if (pdfDocument.PageCount > 0)
+                    {
+                        using (PdfPage pdfPage = pdfDocument.GetPage(0))
+                        {
+                            BitmapImage imageSource = new BitmapImage();
+                            using (InMemoryRandomAccessStream memoryStream = new InMemoryRandomAccessStream())
+                            {
+                                await pdfPage.RenderToStreamAsync(memoryStream);
+                                await imageSource.SetSourceAsync(memoryStream);
+                            }
+                            ContractFileImage.Source = imageSource;
+                        }
+                    }
+                }
+            }
+        }
+
+        private async Task<string> UploadContractFileToFirebaseStorageAsync(StorageFile contractFile)
+        {
+            if (contractFile == null)
+            {
+                return "";
+            }
+
+            string fileUrl = "";
+            string fileName = $"{DateTimeOffset.UtcNow.ToUnixTimeSeconds()}_{contractFile.Name}";
+
+            try
+            {
+                HttpClient httpClient = new HttpClient();
+                Uri requestUri = new Uri($"https://firebasestorage.googleapis.com/v0/b/{GlobalData.firebaseStorage}/o/{Uri.EscapeDataString(fileName)}?uploadType=media&name={Uri.EscapeDataString(fileName)}");
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Firebase", GlobalData.firebaseAuthentication);
+
+                using (var fileStream = await contractFile.OpenStreamForReadAsync())
+                {
+                    HttpResponseMessage response = await httpClient.PostAsync(requestUri, new StreamContent(fileStream));
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        var responseJson = JsonConvert.DeserializeObject<JObject>(responseBody);
+                        string downloadTokens = responseJson.Value<string>("downloadTokens");
+                        fileUrl = $"https://firebasestorage.googleapis.com/v0/b/{GlobalData.firebaseStorage}/o/{Uri.EscapeDataString(fileName)}?alt=media&token={downloadTokens}";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayDialog("Error", ex.Message);
+            }
+
+            return fileUrl;
+        }
+
+>>>>>>> main2
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(TenantDetails));

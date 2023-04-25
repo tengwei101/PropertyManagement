@@ -51,10 +51,19 @@
                     <TextBlock Text="Active: " />
                     <CheckBox x:Name="ActiveCheckBox" IsChecked="{Binding IsActiveTenant, Mode=TwoWay}" Margin="5,0,0,0" Checked="ActiveCheckBox_Checked" Unchecked="ActiveCheckBox_Unchecked" />
                 </StackPanel>
+<<<<<<< HEAD
+=======
+                <Image x:Name="ContractFileImage" Height="300" Margin="0,10,0,0" />
+
+>>>>>>> main2
             </StackPanel>
         </ScrollViewer>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="100">
+<<<<<<< HEAD
+=======
+            <Button Content="Download Contract" Click="DownloadFileButton_Click" Margin="0,0,10,0"/>
+>>>>>>> main2
             <Button Content="Edit" Click="EditButton_Click" Margin="0,0,10,0"/>
             <Button Content="Delete" Click="DeleteButton_Click" Margin="0,0,10,0"/>
             <Button Content="Back" Click="BackButton_Click"/>

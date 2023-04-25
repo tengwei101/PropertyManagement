@@ -19,5 +19,9 @@ namespace PropertyManagement
         public double RentAmount { get; set; }
         public string RentPaymentFrequency { get; set; }
         public bool IsActiveTenant { get; set; }
+<<<<<<< HEAD
+=======
+        public string ContractFile { get; set; }
+>>>>>>> main2
     }
 }

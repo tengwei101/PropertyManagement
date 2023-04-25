@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "+aGwji222ydQCaO6yzLtH9AY2mxn+F8GUmJ09nEEPsYW5ygvGePrja6JBH7Pbv0F+BCO61T6moD85lFAN5FNQg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Acer\\source\\repos\\PropertyManagement\\PropertyManagement\\PropertyManagement.csproj",
+=======
+  "dgSpecHash": "KpsImSK+gryWJmor3CohusGvNI2wsy7AjzOmXZbaGchOeJ/LQq3q1/f+7faPujYPmld0fnnU25NPpkJLBO0QbA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Acer\\Downloads\\PropertyManagement-main\\PropertyManagement-main\\PropertyManagement\\PropertyManagement.csproj",
+>>>>>>> main2
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\firebase.auth\\1.0.0\\firebase.auth.1.0.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\firebaseauthentication.net\\4.0.2\\firebaseauthentication.net.4.0.2.nupkg.sha512",

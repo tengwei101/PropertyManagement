@@ -49,15 +49,29 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                     <TextBlock Text="Active: " />
+<<<<<<< HEAD
                     <CheckBox x:ConnectionId='6' x:Name="ActiveCheckBox" IsChecked="{Binding IsActiveTenant, Mode=TwoWay}" Margin="5,0,0,0"                                                                       />
                 </StackPanel>
+=======
+                    <CheckBox x:ConnectionId='8' x:Name="ActiveCheckBox" IsChecked="{Binding IsActiveTenant, Mode=TwoWay}" Margin="5,0,0,0"                                                                       />
+                </StackPanel>
+                <Image x:ConnectionId='7' x:Name="ContractFileImage" Height="300" Margin="0,10,0,0" />
+
+>>>>>>> main2
             </StackPanel>
         </ScrollViewer>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="100">
+<<<<<<< HEAD
             <Button x:ConnectionId='3' Content="Edit"                          Margin="0,0,10,0"/>
             <Button x:ConnectionId='4' Content="Delete"                            Margin="0,0,10,0"/>
             <Button x:ConnectionId='5' Content="Back"                         />
+=======
+            <Button x:ConnectionId='3' Content="Download Contract"                                  Margin="0,0,10,0"/>
+            <Button x:ConnectionId='4' Content="Edit"                          Margin="0,0,10,0"/>
+            <Button x:ConnectionId='5' Content="Delete"                            Margin="0,0,10,0"/>
+            <Button x:ConnectionId='6' Content="Back"                         />
+>>>>>>> main2
 
         </StackPanel>
     </Grid>

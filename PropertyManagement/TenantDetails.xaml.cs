@@ -15,6 +15,16 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+<<<<<<< HEAD
+=======
+using Windows.Data.Pdf;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.Storage.Pickers;
+
+
+>>>>>>> main2
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,12 +47,21 @@ namespace PropertyManagement
             base.OnNavigatedTo(e);
 
             // Use GlobalData.tenant to get the selected tenant
+<<<<<<< HEAD
             TenantItem selectedTenant = GlobalData.tenant;
 
             if (selectedTenant != null)
             {
                 this.DataContext = selectedTenant;
                 _selectedTenant = selectedTenant;
+=======
+            _selectedTenant = GlobalData.tenant;
+
+            if (_selectedTenant != null)
+            {
+                this.DataContext = _selectedTenant;
+                LoadContractFileAsync(_selectedTenant.ContractFile);
+>>>>>>> main2
                 // Set the IsChecked property of the ActiveCheckBox based on the IsActiveTenant value
                 ActiveCheckBox.IsChecked = _selectedTenant.IsActiveTenant;
             }
@@ -139,6 +158,42 @@ namespace PropertyManagement
             }
         }
 
+<<<<<<< HEAD
+=======
+        private async Task LoadContractFileAsync(string contractFileUrl)
+        {
+            if (!string.IsNullOrEmpty(contractFileUrl))
+            {
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync(contractFileUrl);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+                        {
+                            await response.Content.CopyToAsync(stream.AsStreamForWrite());
+
+                            PdfDocument pdfDocument = await PdfDocument.LoadFromStreamAsync(stream);
+                            if (pdfDocument.PageCount > 0)
+                            {
+                                using (PdfPage pdfPage = pdfDocument.GetPage(0))
+                                {
+                                    BitmapImage imageSource = new BitmapImage();
+                                    using (InMemoryRandomAccessStream memoryStream = new InMemoryRandomAccessStream())
+                                    {
+                                        await pdfPage.RenderToStreamAsync(memoryStream);
+                                        await imageSource.SetSourceAsync(memoryStream);
+                                    }
+                                    ContractFileImage.Source = imageSource;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+>>>>>>> main2
 
         private async void DisplayDialog(string title, string message)
         {
@@ -156,5 +211,56 @@ namespace PropertyManagement
         {
             Frame.Navigate(typeof(TenantsList));
         }
+<<<<<<< HEAD
+=======
+
+        private async void DownloadFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedTenant != null)
+            {
+                string localFilename = $"{_selectedTenant.Name}-ContractFile.pdf"; // Set the file name as per your requirement
+
+                // Use FolderPicker to let the user choose a folder to save the downloaded file
+                FolderPicker folderPicker = new FolderPicker
+                {
+                    SuggestedStartLocation = PickerLocationId.DocumentsLibrary
+                };
+                folderPicker.FileTypeFilter.Add("*");
+
+                StorageFolder localFolder = await folderPicker.PickSingleFolderAsync();
+
+                if (localFolder != null)
+                {
+                    StorageFile localFile = await localFolder.CreateFileAsync(localFilename, CreationCollisionOption.GenerateUniqueName);
+
+                    using (HttpClient httpClient = new HttpClient())
+                    {
+                        HttpResponseMessage response = await httpClient.GetAsync(_selectedTenant.ContractFile);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            using (Stream remoteStream = await response.Content.ReadAsStreamAsync())
+                            {
+                                using (Stream localStream = await localFile.OpenStreamForWriteAsync())
+                                {
+                                    await remoteStream.CopyToAsync(localStream);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // Handle error response
+                            DisplayDialog("Error", "Failed to download the contract file");
+                        }
+                    }
+
+                    // Notify user about the downloaded file
+                    DisplayDialog("Download Completed", $"The contract file has been downloaded to the selected folder as {localFile.Name}");
+                }
+            }
+        }
+
+
+>>>>>>> main2
     }
 }

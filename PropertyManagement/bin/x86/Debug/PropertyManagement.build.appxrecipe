@@ -10,22 +10,37 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>a3f48b6a-371e-40ae-802c-54245ea0c25d</PackageIdentityName>
     <PackageIdentityPublisher>CN=Acer</PackageIdentityPublisher>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\obj\x86\Debug\</IntermediateOutputPath>
+>>>>>>> main2
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+<<<<<<< HEAD
     <LayoutDir>C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\Core\AppxManifest.xml">
+=======
+    <LayoutDir>C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\AppX</LayoutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\Core\AppxManifest.xml">
+>>>>>>> main2
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\PropertyManagement.exe">
+=======
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\PropertyManagement.exe">
+>>>>>>> main2
       <PackagePath>entrypoint\PropertyManagement.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\.nuget\packages\firebaseauthentication.net\4.0.2\lib\netstandard2.0\Firebase.Auth.dll">
@@ -55,6 +70,7 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\Assets\maintenance_icon.png">
       <PackagePath>Assets\maintenance_icon.png</PackagePath>
     </AppxPackagedFile>
@@ -134,15 +150,103 @@
       <PackagePath>TenantDetails.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\TenantsList.xbf">
+=======
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\maintenance_icon.png">
+      <PackagePath>Assets\maintenance_icon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\tenant_avatar.png">
+      <PackagePath>Assets\tenant_avatar.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\PropertyManagement.xr.xml">
+      <PackagePath>PropertyManagement.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\AddMaintenanceRequest.xbf">
+      <PackagePath>AddMaintenanceRequest.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\AddProperty.xbf">
+      <PackagePath>AddProperty.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\AddTenant.xbf">
+      <PackagePath>AddTenant.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\EditMaintenanceRequest.xbf">
+      <PackagePath>EditMaintenanceRequest.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\EditProperty.xbf">
+      <PackagePath>EditProperty.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\EditTenant.xbf">
+      <PackagePath>EditTenant.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\MaintenanceAndRepair.xbf">
+      <PackagePath>MaintenanceAndRepair.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\MaintenanceRequestDetails.xbf">
+      <PackagePath>MaintenanceRequestDetails.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\Property.xbf">
+      <PackagePath>Property.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\PropertyDetails.xbf">
+      <PackagePath>PropertyDetails.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\TenantDetails.xbf">
+      <PackagePath>TenantDetails.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\TenantsList.xbf">
+>>>>>>> main2
       <PackagePath>TenantsList.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\Core\PropertyManagement.exe">
+=======
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Acer\Downloads\PropertyManagement-main\PropertyManagement-main\PropertyManagement\bin\x86\Debug\Core\PropertyManagement.exe">
+>>>>>>> main2
       <PackagePath>PropertyManagement.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

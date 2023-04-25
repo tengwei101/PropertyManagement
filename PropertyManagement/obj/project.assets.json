@@ -16853,11 +16853,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\PropertyManagement\\PropertyManagement\\PropertyManagement.csproj",
       "projectName": "PropertyManagement",
       "projectPath": "C:\\Users\\Acer\\source\\repos\\PropertyManagement\\PropertyManagement\\PropertyManagement.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Acer\\source\\repos\\PropertyManagement\\PropertyManagement\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Acer\\Downloads\\PropertyManagement-main\\PropertyManagement-main\\PropertyManagement\\PropertyManagement.csproj",
+      "projectName": "PropertyManagement",
+      "projectPath": "C:\\Users\\Acer\\Downloads\\PropertyManagement-main\\PropertyManagement-main\\PropertyManagement\\PropertyManagement.csproj",
+      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Acer\\Downloads\\PropertyManagement-main\\PropertyManagement-main\\PropertyManagement\\obj\\",
+>>>>>>> main2
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
