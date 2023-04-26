@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+aGwji222ydQCaO6yzLtH9AY2mxn+F8GUmJ09nEEPsYW5ygvGePrja6JBH7Pbv0F+BCO61T6moD85lFAN5FNQg==",
+  "dgSpecHash": "pA5p8/vz9nMVYi9VdMOf6ZmArzNMaz7cNIyAY+SHJb0niHUD9Y/FJ2jz+eFAetwJh4iN9n90yKmZs5ijvOK8pA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Acer\\source\\repos\\PropertyManagement\\PropertyManagement\\PropertyManagement.csproj",
   "expectedPackageFiles": [
@@ -65,6 +65,8 @@
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.win7-x86.microsoft.netcore.runtime.coreclr\\1.0.2\\runtime.win7-x86.microsoft.netcore.runtime.coreclr.1.0.2.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\runtime.win7.system.private.uri\\4.3.0\\runtime.win7.system.private.uri.4.3.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\runtime.win8-arm.microsoft.netcore.runtime.coreclr\\1.0.2\\runtime.win8-arm.microsoft.netcore.runtime.coreclr.1.0.2.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\sendgrid\\9.28.1\\sendgrid.9.28.1.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.diagnostics.contracts\\4.3.0\\system.diagnostics.contracts.4.3.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",

@@ -19,20 +19,25 @@
                 <TextBlock Text="Add Appointment" FontSize="30" FontWeight="Bold" Margin="0,0,0,20"/>
                 <TextBox x:ConnectionId='2' x:Name="TitleTextBox" Header="Title" PlaceholderText="Enter appointment title" Margin="0,0,0,10"/>
                 <TextBox x:ConnectionId='3' x:Name="DescriptionTextBox" Header="Description" PlaceholderText="Enter appointment description" Margin="0,0,0,10" AcceptsReturn="True" TextWrapping="Wrap" Height="100"/>
-                <DatePicker x:ConnectionId='4' x:Name="StartDatePicker" Header="Start Date" Margin="0,0,0,10"/>
-                <TimePicker x:ConnectionId='5' x:Name="StartTimePicker" Header="Start Time" Margin="0,0,0,10"/>
-                <Slider x:ConnectionId='6' x:Name="DurationSlider" Header="Duration (Hours)" Minimum="0.5" Maximum="24" StepFrequency="0.5" Margin="0,0,0,10"                                           />
+                <TextBox x:ConnectionId='4' x:Name="LocationTextBox" Header="Location" PlaceholderText="Enter appointment location" Margin="0,0,0,10"/>
+                <DatePicker x:ConnectionId='5' x:Name="StartDatePicker" Header="Start Date" Margin="0,0,0,10"/>
+                <TimePicker x:ConnectionId='6' x:Name="StartTimePicker" Header="Start Time" Margin="0,0,0,10"/>
+                <Slider x:ConnectionId='7' x:Name="DurationSlider" Header="Duration (Hours)" Minimum="0.5" Maximum="24" StepFrequency="0.5" Margin="0,0,0,10"                                           />
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <TextBlock Text="Duration: " Margin="0,0,0,10"/>
-                    <TextBlock x:ConnectionId='15' x:Name="DurationTextBlock" Text=" 0.5 " Margin="0,0,0,10"/>
+                    <TextBlock x:ConnectionId='16' x:Name="DurationTextBlock" Text=" 0.5 " Margin="0,0,0,10"/>
                     <TextBlock Text=" Hours" Margin="0,0,0,10"/>
 
                 </StackPanel>
-                <TextBox x:ConnectionId='7' x:Name="LocationTextBox" Header="Location" PlaceholderText="Enter appointment location" Margin="0,0,0,10"/>
+                <ComboBox x:ConnectionId='8' x:Name="StatusComboBox" SelectedIndex="0" Header="Status" Margin="0,0,0,10">
+                    <ComboBoxItem Content="In Progress" />
+                    <ComboBoxItem Content="Pending" />
+                    <ComboBoxItem Content="Completed" />
+                </ComboBox>
 
                 <TextBlock Text="Attendees" FontSize="20" FontWeight="Bold" Margin="0,10,0,10"/>
-                <Button x:ConnectionId='8' x:Name="AddAttendeeButton" Content="Add Attendee"                                 Margin="0,0,0,10"/>
-                <ListView x:ConnectionId='9' x:Name="AttendeesListView" Margin="0,0,0,10">
+                <Button x:ConnectionId='9' x:Name="AddAttendeeButton" Content="Add Attendee"                                 Margin="0,0,0,10"/>
+                <ListView x:ConnectionId='10' x:Name="AttendeesListView" Margin="0,0,0,10">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0,0,0,10">
@@ -56,7 +61,7 @@
                                     </StackPanel>
                                 </Border>
 
-                                <Button x:ConnectionId='14'
+                                <Button x:ConnectionId='15'
                                 x:Name="DeleteButton"
                                 Grid.Column="1"
                                 Content="Delete"
@@ -76,11 +81,11 @@
 
 
                 <StackPanel Orientation="Horizontal">
-                    <Button x:ConnectionId='11' x:Name="AddAppointmentButton" Content="Add Appointment"                                    Margin="10"/>
-                    <Button x:ConnectionId='12' x:Name="BackButton" Content="Back"                          Margin="10"/>
+                    <Button x:ConnectionId='12' x:Name="AddAppointmentButton" Content="Add Appointment"                                    Margin="10"/>
+                    <Button x:ConnectionId='13' x:Name="BackButton" Content="Back"                          Margin="10"/>
 
                 </StackPanel>
-                <TextBlock x:ConnectionId='10' x:Name="StatusTextBlock" Text="" TextWrapping="Wrap" Foreground="Red"/>
+                <TextBlock x:ConnectionId='11' x:Name="StatusTextBlock" Text="" TextWrapping="Wrap" Foreground="Red"/>
             </StackPanel>
 
         </Grid>

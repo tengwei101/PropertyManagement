@@ -17,6 +17,7 @@ namespace PropertyManagement
         public static PropertyItem property { get; set; }
         public static TenantItem tenant { get; set; }
         public static MaintenanceRequest maintenanceRequest { get; set; }
+        public static Appointment appointment { get; set; }
 
     }
 }

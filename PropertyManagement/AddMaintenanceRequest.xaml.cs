@@ -122,6 +122,7 @@ namespace PropertyManagement
             
         }
 
+
         private void SubmissionDatePicker_DateChanged(object sender, DatePickerValueChangedEventArgs e)
         {
             submissionDatePickerChanged = true;

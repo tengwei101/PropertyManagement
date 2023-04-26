@@ -1,0 +1,94 @@
+﻿<Page
+    x:Class="PropertyManagement.EditAppointment"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PropertyManagement"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="30">
+                <TextBlock Text="Edit Appointment" FontSize="30" FontWeight="Bold" Margin="0,0,0,20"/>
+                <TextBox x:ConnectionId='2' x:Name="TitleTextBox" Header="Title" PlaceholderText="Enter appointment title" Margin="0,0,0,10"/>
+                <TextBox x:ConnectionId='3' x:Name="DescriptionTextBox" Header="Description" PlaceholderText="Enter appointment description" Margin="0,0,0,10" AcceptsReturn="True" TextWrapping="Wrap" Height="100"/>
+                <TextBox x:ConnectionId='4' x:Name="LocationTextBox" Header="Location" PlaceholderText="Enter appointment location" Margin="0,0,0,10"/>
+                <DatePicker x:ConnectionId='5' x:Name="StartDatePicker" Header="Start Date" Margin="0,0,0,10"/>
+                <TimePicker x:ConnectionId='6' x:Name="StartTimePicker" Header="Start Time" Margin="0,0,0,10"/>
+                <Slider x:ConnectionId='7' x:Name="DurationSlider" Header="Duration (Hours)" Minimum="0.5" Maximum="24" StepFrequency="0.5" Margin="0,0,0,10"                                           />
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Duration: " Margin="0,0,0,10"/>
+                    <TextBlock x:ConnectionId='16' x:Name="DurationTextBlock" Text=" 0.5 " Margin="0,0,0,10"/>
+                    <TextBlock Text=" Hours" Margin="0,0,0,10"/>
+
+                </StackPanel>
+                <ComboBox x:ConnectionId='8' x:Name="StatusComboBox" SelectedIndex="0" Header="Status" Margin="0,0,0,10">
+                    <ComboBoxItem Content="In Progress" />
+                    <ComboBoxItem Content="Pending" />
+                    <ComboBoxItem Content="Completed" />
+                </ComboBox>
+
+                <TextBlock Text="Attendees" FontSize="20" FontWeight="Bold" Margin="0,10,0,10"/>
+                <Button x:ConnectionId='9' x:Name="AddAttendeeButton" Content="Add Attendee"                                 Margin="0,0,0,10"/>
+                <ListView x:ConnectionId='10' x:Name="AttendeesListView" Margin="0,0,0,10">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,0,0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Border
+                    Grid.Column="0"
+                    Padding="10"
+                    Background="DarkSlateGray"
+                    BorderBrush="LightGray"
+                    BorderThickness="1"
+                    CornerRadius="4">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,10,0" />
+                                        <TextBlock Text="{Binding Email}" FontStyle="Italic" Margin="0,0,10,0" />
+                                        <TextBlock Text="{Binding PhoneNumber}" FontStyle="Italic" Margin="0,0,10,0" />
+                                        <TextBlock Text="{Binding Role}" FontWeight="Bold" />
+                                    </StackPanel>
+                                </Border>
+
+                                <Button x:ConnectionId='15'
+                                x:Name="DeleteButton"
+                                Grid.Column="1"
+                                Content="Delete"
+                                Margin="10,0"
+                                VerticalAlignment="Top"
+                                Padding="10,5"
+                                Background="#FF1C1C"
+                                BorderBrush="#FF1C1C"
+                                BorderThickness="1"
+                                Foreground="White"
+                                                           />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+                <StackPanel Orientation="Horizontal">
+                    <Button x:ConnectionId='12' x:Name="UpdateAppointmentButton" Content="Update"                                       Margin="10"/>
+                    <Button x:ConnectionId='13' x:Name="BackButton" Content="Back"                          Margin="10"/>
+
+                </StackPanel>
+                <TextBlock x:ConnectionId='11' x:Name="StatusTextBlock" Text="" TextWrapping="Wrap" Foreground="Red"/>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</Page>
+

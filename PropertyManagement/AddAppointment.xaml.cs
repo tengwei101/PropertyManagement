@@ -59,7 +59,7 @@ namespace PropertyManagement
                 Duration = TimeSpan.FromHours(DurationSlider.Value).ToString(@"hh\:mm"),
                 Location = LocationTextBox.Text,
                 Attendees = _attendees,
-                Status = "In Progress",
+                Status = (StatusComboBox.SelectedItem as ComboBoxItem).Content.ToString(),
                 PropertyId = GlobalData.property.Id,
             };
             // Save the property object to Firebase Database and get the Firebase key
@@ -91,9 +91,11 @@ namespace PropertyManagement
             StartTimePicker.Time = TimeSpan.Zero;
             DurationSlider.Value = 0.5;
             LocationTextBox.Text = string.Empty;
+            StatusComboBox.SelectedIndex = -1;
             _attendees.Clear();
             AttendeesListView.ItemsSource = null;
         }
+
 
         private async Task<string> CreateAppointmentInFirebaseDatabaseAsync(Appointment appointment)
         {

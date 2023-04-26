@@ -8,9 +8,9 @@
     <RootPropertyPathName Name="PhoneNumber" />
     <RootPropertyPathName Name="Email" />
     <RootPropertyPathName Name="Name" />
+    <RootPropertyPathName Name="Status" />
     <RootPropertyPathName Name="CompletionDate" />
     <RootPropertyPathName Name="SubmissionDate" />
-    <RootPropertyPathName Name="Status" />
     <RootPropertyPathName Name="Priority" />
     <RootPropertyPathName Name="TenantName" />
     <RootPropertyPathName Name="ImageUrl" />
@@ -53,6 +53,8 @@
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
+      <RootMethod Name="GetColumnSpan" />
+      <RootMethod Name="SetColumnSpan" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
@@ -63,7 +65,12 @@
       <RootProperty Name="Orientation" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="CornerRadius" />
       <RootProperty Name="Width" />
+      <RootEvent Name="Tapped" />
+      <RootEvent Name="PointerEntered" />
+      <RootEvent Name="PointerExited" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -102,6 +109,16 @@
       <RootProperty Name="Margin" />
       <RootEvent Name="ValueChanged" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="SelectedIndex" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Items" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="SelectedValue" />
+      <RootProperty Name="SelectedValuePath" />
+      <RootEvent Name="SelectionChanged" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="Margin" />
@@ -118,6 +135,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="SelectionMode" />
+      <RootProperty Name="ItemsPanel" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
@@ -133,25 +152,16 @@
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="CornerRadius" />
       <RootProperty Name="Child" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Converter" />
       <RootProperty Name="Mode" />
     </RootType>
-    <RootType FullName="PropertyManagement.AddAppointment" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="Header" />
-      <RootProperty Name="PlaceholderText" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Items" />
-      <RootProperty Name="SelectedIndex" />
-      <RootProperty Name="SelectedValue" />
-      <RootProperty Name="SelectedValuePath" />
-      <RootEvent Name="SelectionChanged" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
       <RootProperty Name="Content" />
     </RootType>
+    <RootType FullName="PropertyManagement.AddAppointment" />
     <RootType FullName="PropertyManagement.AddAttendee" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Width" />
@@ -173,12 +183,26 @@
       <RootEvent Name="Unchecked" />
     </RootType>
     <RootType FullName="PropertyManagement.AddTenant" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.WrapGrid">
+      <RootProperty Name="Orientation" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
+    <RootType FullName="PropertyManagement.AppointmentDetails" />
+    <RootType FullName="PropertyManagement.StatusToBorderColorConverter" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsWrapGrid">
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="MaximumRowsOrColumns" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Documents.Run">
       <RootProperty Name="Text" />
       <RootProperty Name="FontWeight" />
     </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
     <RootType FullName="PropertyManagement.AppointmentList" />
+    <RootType FullName="PropertyManagement.EditAppointment" />
     <RootType FullName="PropertyManagement.EditMaintenanceRequest" />
     <RootType FullName="PropertyManagement.EditProperty" />
     <RootType FullName="PropertyManagement.EditTenant" />
@@ -189,7 +213,6 @@
     </RootType>
     <RootType FullName="PropertyManagement.MainPage" />
     <RootType FullName="PropertyManagement.EmptyImageUrlToDefaultImageConverter" />
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="PropertyManagement.MaintenanceAndRepair" />
     <RootType FullName="PropertyManagement.MaintenanceRequestDetails" />
     <RootType FullName="PropertyManagement.Property" />

@@ -12,6 +12,12 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Firebase.Database;
+using Firebase.Database.Query;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Threading.Tasks;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,21 +28,67 @@ namespace PropertyManagement
     /// </summary>
     public sealed partial class AppointmentList : Page
     {
+
+        private readonly FirebaseClient _firebaseClient = new FirebaseClient(GlobalData.firebaseDatabase);
+        public ObservableCollection<Appointment> FilteredAppointments { get; set; } = new ObservableCollection<Appointment>();
+
+
         public AppointmentList()
         {
             this.InitializeComponent();
         }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            await RetrieveAndFilterAppointmentsAsync();
+        }
+
 
         private void AddAppointmentButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(AddAppointment));
         }
 
-        private void DetailsButton_Click(object sender, RoutedEventArgs e)
+
+
+        public async Task RetrieveAndFilterAppointmentsAsync()
         {
-            Frame.Navigate(typeof(AddAppointment));
+            var allAppointments = await _firebaseClient
+                .Child("appointments")
+                .OnceAsync<Appointment>();
+
+            FilteredAppointments.Clear();
+
+            foreach (var appointment in allAppointments)
+            {
+                if (appointment.Object.PropertyId == GlobalData.property.Id)
+                {
+                    FilteredAppointments.Add(appointment.Object);
+                }
+            }
+
+            AppointmentListView.ItemsSource = FilteredAppointments;
         }
 
-        
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(PropertyDetails));
+        }
+
+        private void AppointmentListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedAppointment = (Appointment)AppointmentListView.SelectedItem;
+
+            if (selectedAppointment != null)
+            {
+                // Perform the desired action on the selected appointment
+                // For example, you can navigate to another page with the appointment details
+                // Navigate to the PropertyDetails page with the selected property
+                GlobalData.appointment = selectedAppointment;
+                Frame.Navigate(typeof(AppointmentDetails));
+
+            }
+        }
     }
 }

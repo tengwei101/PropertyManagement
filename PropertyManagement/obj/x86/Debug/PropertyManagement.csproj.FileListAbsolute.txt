@@ -244,3 +244,16 @@ C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\A
 C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddAppointment.xbf
 C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddAttendee.xbf
 C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AppointmentList.xbf
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AppointmentDetails.xbf
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\AppointmentDetails.g.i.cs
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\AppointmentDetails.g.cs
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\AppointmentDetails.xaml
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\AppointmentDetails.xbf
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditAppointment.xbf
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\EditAppointment.g.i.cs
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\EditAppointment.g.cs
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\EditAppointment.xaml
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\obj\x86\Debug\EditAppointment.xbf
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\SendGrid.dll
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\SendGrid.pdb
+C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\StarkbankEcdsa.dll

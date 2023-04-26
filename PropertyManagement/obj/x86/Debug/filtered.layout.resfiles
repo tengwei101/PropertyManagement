@@ -14,7 +14,9 @@ AddMaintenanceRequest.xbf
 AddProperty.xbf
 AddTenant.xbf
 App.xbf
+AppointmentDetails.xbf
 AppointmentList.xbf
+EditAppointment.xbf
 EditMaintenanceRequest.xbf
 EditProperty.xbf
 EditTenant.xbf

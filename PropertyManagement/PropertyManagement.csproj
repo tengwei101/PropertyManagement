@@ -135,8 +135,14 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Appointment.cs" />
+    <Compile Include="AppointmentDetails.xaml.cs">
+      <DependentUpon>AppointmentDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppointmentList.xaml.cs">
       <DependentUpon>AppointmentList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditAppointment.xaml.cs">
+      <DependentUpon>EditAppointment.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditMaintenanceRequest.xaml.cs">
       <DependentUpon>EditMaintenanceRequest.xaml</DependentUpon>
@@ -168,6 +174,7 @@
       <DependentUpon>PropertyDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="PropertyItem.cs" />
+    <Compile Include="StatusToBorderColorConverter.cs" />
     <Compile Include="TenantDetails.xaml.cs">
       <DependentUpon>TenantDetails.xaml</DependentUpon>
     </Compile>
@@ -218,7 +225,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppointmentDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppointmentList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditAppointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -281,6 +296,9 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="SendGrid">
+      <Version>9.28.1</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
