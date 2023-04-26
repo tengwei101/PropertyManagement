@@ -116,6 +116,12 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AddAppointment.xaml.cs">
+      <DependentUpon>AddAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddAttendee.xaml.cs">
+      <DependentUpon>AddAttendee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddMaintenanceRequest.xaml.cs">
       <DependentUpon>AddMaintenanceRequest.xaml</DependentUpon>
     </Compile>
@@ -127,6 +133,10 @@
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment.cs" />
+    <Compile Include="AppointmentList.xaml.cs">
+      <DependentUpon>AppointmentList.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditMaintenanceRequest.xaml.cs">
       <DependentUpon>EditMaintenanceRequest.xaml</DependentUpon>
@@ -188,6 +198,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddAttendee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddMaintenanceRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddTenant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppointmentList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

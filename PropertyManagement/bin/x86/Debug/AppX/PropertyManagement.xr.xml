@@ -4,6 +4,10 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Role" />
+    <RootPropertyPathName Name="PhoneNumber" />
+    <RootPropertyPathName Name="Email" />
+    <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="CompletionDate" />
     <RootPropertyPathName Name="SubmissionDate" />
     <RootPropertyPathName Name="Status" />
@@ -26,10 +30,7 @@
     <RootPropertyPathName Name="RentAmount" />
     <RootPropertyPathName Name="LeaseEndDate" />
     <RootPropertyPathName Name="LeaseStartDate" />
-    <RootPropertyPathName Name="PhoneNumber" />
-    <RootPropertyPathName Name="Email" />
     <RootPropertyPathName Name="DateOfBirth" />
-    <RootPropertyPathName Name="Name" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -46,6 +47,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Children" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="ColumnDefinitions" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
@@ -55,17 +57,6 @@
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="Text" />
-      <RootProperty Name="FontWeight" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="FontStyle" />
-      <RootProperty Name="Inlines" />
-      <RootProperty Name="HorizontalAlignment" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
@@ -74,23 +65,83 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalAlignment" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="Text" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="RenderTransformOrigin" />
-      <RootEvent Name="Click" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="FontStyle" />
+      <RootProperty Name="Inlines" />
+      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Header" />
+      <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Margin" />
       <RootProperty Name="AcceptsReturn" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Height" />
-      <RootProperty Name="PlaceholderText" />
+      <RootEvent Name="TextChanged" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="DateChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TimePicker">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Slider">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Minimum" />
+      <RootProperty Name="Maximum" />
+      <RootProperty Name="StepFrequency" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="ValueChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="SelectionChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Border">
+      <RootProperty Name="Padding" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="CornerRadius" />
+      <RootProperty Name="Child" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Converter" />
+      <RootProperty Name="Mode" />
+    </RootType>
+    <RootType FullName="PropertyManagement.AddAppointment" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Header" />
+      <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Items" />
       <RootProperty Name="SelectedIndex" />
@@ -98,11 +149,10 @@
       <RootProperty Name="SelectedValuePath" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
-      <RootProperty Name="Header" />
-      <RootProperty Name="Margin" />
-      <RootEvent Name="DateChanged" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
+      <RootProperty Name="Content" />
     </RootType>
+    <RootType FullName="PropertyManagement.AddAttendee" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
@@ -112,9 +162,6 @@
       <RootProperty Name="MaxHeight" />
       <RootProperty Name="MaxWidth" />
       <RootProperty Name="Source" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
-      <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="PropertyManagement.AddMaintenanceRequest" />
     <RootType FullName="PropertyManagement.AddProperty" />
@@ -126,6 +173,12 @@
       <RootEvent Name="Unchecked" />
     </RootType>
     <RootType FullName="PropertyManagement.AddTenant" />
+    <RootType FullName="Windows.UI.Xaml.Documents.Run">
+      <RootProperty Name="Text" />
+      <RootProperty Name="FontWeight" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
+    <RootType FullName="PropertyManagement.AppointmentList" />
     <RootType FullName="PropertyManagement.EditMaintenanceRequest" />
     <RootType FullName="PropertyManagement.EditProperty" />
     <RootType FullName="PropertyManagement.EditTenant" />
@@ -136,27 +189,9 @@
     </RootType>
     <RootType FullName="PropertyManagement.MainPage" />
     <RootType FullName="PropertyManagement.EmptyImageUrlToDefaultImageConverter" />
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
-      <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="Converter" />
-      <RootProperty Name="Mode" />
-    </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="ItemTemplate" />
-      <RootEvent Name="SelectionChanged" />
-    </RootType>
     <RootType FullName="PropertyManagement.MaintenanceAndRepair" />
     <RootType FullName="PropertyManagement.MaintenanceRequestDetails" />
-    <RootType FullName="Windows.UI.Xaml.Documents.Run">
-      <RootProperty Name="Text" />
-    </RootType>
     <RootType FullName="PropertyManagement.Property" />
     <RootType FullName="PropertyManagement.PropertyDetails" />
     <RootType FullName="PropertyManagement.TenantDetails" />

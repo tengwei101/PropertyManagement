@@ -55,6 +55,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10" Height="100">
                         <Button Content="Tenants" Click="TenantsButton_Click" Margin="0,0,10,0"/>
                         <Button Content="Maintenance and Repair" Click="MaintenanceAndRepairButton_Click" Margin="0,0,10,0"/>
+                        <Button Content="Appointments" Click="AppointmentButton_Click" Margin="0,0,10,0"/>
                         <Button Content="Edit" Click="EditButton_Click" Margin="0,0,10,0"/>
                         <Button Content="Delete" Click="DeleteButton_Click" Margin="0,0,10,0"/>
                         <Button Content="Back" Click="BackButton_Click"/>

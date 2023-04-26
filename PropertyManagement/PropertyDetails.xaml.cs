@@ -130,6 +130,19 @@ namespace PropertyManagement
         {
             Frame.Navigate(typeof(Property));
         }
+
+        private void AppointmentButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedProperty != null)
+            {
+                Frame.Navigate(typeof(AppointmentList), _selectedProperty);
+            }
+            else
+            {
+                // If _selectedProperty is null, display an error message or handle the situation appropriately
+                DisplayDialog("Error", "No property selected.");
+            }
+        }
     }
 
 }
