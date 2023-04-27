@@ -8,8 +8,10 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Appointments;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,6 +30,7 @@ namespace PropertyManagement
     public sealed partial class AddAppointment : Page
     {
         private List<Attendee> _attendees = new List<Attendee>();
+        Appointment _appointment;
 
 
         public AddAppointment()
@@ -70,6 +73,8 @@ namespace PropertyManagement
             {
                 // Set the property Id to the firebaseKey
                 appointment.Id = firebaseKey;
+
+                _appointment = appointment;
 
                 // Update the property in Firebase Database with the new Id
                 try
@@ -176,6 +181,38 @@ namespace PropertyManagement
                 AttendeesListView.ItemsSource = _attendees;
             }
         }
+
+        private async void AttendeeItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var border = sender as Border;
+            var attendee = border.DataContext as Attendee;
+
+            var editAttendeePage = new PropertyManagement.EditAttendee(); // Make sure the namespace is correct
+            editAttendeePage.LoadAttendee(attendee);
+  
+            var contentDialog = new ContentDialog
+            {
+                Title = "Edit Attendee",
+                Content = editAttendeePage,
+                PrimaryButtonText = "Update",
+                CloseButtonText = "Cancel"
+            };
+
+            editAttendeePage.AttendeeInfoChanged += (s, a) => { contentDialog.IsPrimaryButtonEnabled = editAttendeePage.IsAttendeeInfoValid(); };
+
+            var result = await contentDialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                // Update the attendee in the list
+                var index = _attendees.IndexOf(attendee);
+                _attendees[index] = editAttendeePage.Attendee;
+                AttendeesListView.ItemsSource = null;
+                AttendeesListView.ItemsSource = _attendees;
+
+            }
+        }
+
 
         private async void DisplayDialog(string title, string context)
         {

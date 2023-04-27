@@ -26,7 +26,8 @@
                     <ComboBoxItem Content="Completed" />
                 </ComboBox>
 
-                <TextBlock Text="Attendees:" FontWeight="Bold" FontSize="20" Margin="0,20,0,10" />
+                <TextBlock Text="Attendees:" FontWeight="Bold" FontSize="20" Margin="0,20,0,0" />
+                <TextBlock Text="( Click on Attendee to send appointment notification. )" FontWeight="Bold" FontSize="12" Margin="0,5,0,0" />
                 <ListView x:Name="AttendeesListView" SelectionMode="None">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>

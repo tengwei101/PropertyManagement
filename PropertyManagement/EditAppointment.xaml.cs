@@ -93,6 +93,37 @@ namespace PropertyManagement
             PopulateAppointmentDetails();
         }
 
+        private async void AttendeeItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var border = sender as Border;
+            var attendee = border.DataContext as Attendee;
+
+            var editAttendeePage = new PropertyManagement.EditAttendee(); // Make sure the namespace is correct
+            editAttendeePage.LoadAttendee(attendee);
+
+            var contentDialog = new ContentDialog
+            {
+                Title = "Edit Attendee",
+                Content = editAttendeePage,
+                PrimaryButtonText = "Update",
+                CloseButtonText = "Cancel"
+            };
+
+            editAttendeePage.AttendeeInfoChanged += (s, a) => { contentDialog.IsPrimaryButtonEnabled = editAttendeePage.IsAttendeeInfoValid(); };
+
+            var result = await contentDialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                // Update the attendee in the list
+                var index = attendees.IndexOf(attendee);
+                attendees[index] = editAttendeePage.Attendee;
+                AttendeesListView.ItemsSource = null;
+                AttendeesListView.ItemsSource = attendees;
+
+            }
+        }
+
         private async void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             var deleteButton = sender as Button;

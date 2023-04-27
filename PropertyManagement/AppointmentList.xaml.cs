@@ -60,16 +60,20 @@ namespace PropertyManagement
 
             FilteredAppointments.Clear();
 
-            foreach (var appointment in allAppointments)
+            var orderedAppointments = allAppointments
+                .Where(a => a.Object.PropertyId == GlobalData.property.Id)
+                .OrderBy(a => DateTime.ParseExact(a.Object.StartDate, "dd-MM-yyyy", CultureInfo.InvariantCulture))
+                .ThenBy(a => TimeSpan.Parse(a.Object.StartTime))
+                .Select(a => a.Object);
+
+            foreach (var appointment in orderedAppointments)
             {
-                if (appointment.Object.PropertyId == GlobalData.property.Id)
-                {
-                    FilteredAppointments.Add(appointment.Object);
-                }
+                FilteredAppointments.Add(appointment);
             }
 
             AppointmentListView.ItemsSource = FilteredAppointments;
         }
+
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {

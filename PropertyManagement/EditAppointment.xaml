@@ -47,12 +47,13 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Border
-                    Grid.Column="0"
-                    Padding="10"
-                    Background="DarkSlateGray"
-                    BorderBrush="LightGray"
-                    BorderThickness="1"
-                    CornerRadius="4">
+                                    Grid.Column="0"
+                                    Padding="10"
+                                    Background="DarkSlateGray"
+                                    BorderBrush="LightGray"
+                                    BorderThickness="1"
+                                    CornerRadius="4"
+                                    Tapped="AttendeeItem_Tapped">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,10,0" />
                                         <TextBlock Text="{Binding Email}" FontStyle="Italic" Margin="0,0,10,0" />

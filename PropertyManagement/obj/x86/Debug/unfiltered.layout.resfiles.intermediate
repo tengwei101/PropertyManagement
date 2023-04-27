@@ -17,6 +17,7 @@ App.xbf
 AppointmentDetails.xbf
 AppointmentList.xbf
 EditAppointment.xbf
+EditAttendee.xbf
 EditMaintenanceRequest.xbf
 EditProperty.xbf
 EditTenant.xbf

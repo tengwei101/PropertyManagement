@@ -74,6 +74,39 @@ namespace PropertyManagement
             }
         }
 
+        private async void ForgotPasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ContentDialog
+            {
+                Title = "Password Recovery",
+                Content = new TextBox { PlaceholderText = "Enter your email" },
+                PrimaryButtonText = "Send Reset Email",
+                SecondaryButtonText = "Cancel"
+            };
+
+            var result = await dialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var email = (dialog.Content as TextBox).Text;
+                await SendPasswordResetEmailAsync(email);
+            }
+        }
+
+        private async Task SendPasswordResetEmailAsync(string email)
+        {
+            try
+            {
+                await _auth.SendPasswordResetEmailAsync(email);
+                StatusTextBlock.Text = $"Password reset email sent to {email}.";
+            }
+            catch (Exception ex)
+            {
+                StatusTextBlock.Text = $"Failed to send password reset email: {ex.Message}";
+            }
+        }
+
+
+
     }
 
 

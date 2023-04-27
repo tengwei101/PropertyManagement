@@ -161,7 +161,7 @@ namespace PropertyManagement
                 // Set up the email sender
                 var fromAddress = new MailAddress("tengwei101@gmail.com", "RAD Property Management");
                 var toAddress = new MailAddress(attendee.Email, attendee.Name);
-                const string subject = "Appointment Notification";
+                const string subject = "RAD Property Appointment Notification";
                 string body = $"Hello {attendee.Name},\n\nYou have an appointment:\n\n" +
                     $"Title: {appointment.Title}\n" +
                     $"Description: {appointment.Description}\n" +
