@@ -33,6 +33,12 @@
                 Margin="10,10,0,10" />
 
             <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <ComboBox x:Name="StatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10,10,20,10" SelectionChanged="StatusFilterComboBox_SelectionChanged" SelectedIndex="0" Header="Status">
+                    <ComboBoxItem Content="All" />
+                    <ComboBoxItem Content="In Progress" />
+                    <ComboBoxItem Content="Pending" />
+                    <ComboBoxItem Content="Completed" />
+                </ComboBox>
                 <Button
                 x:Name="AddAppointmentButton"
                 Content="Add Appointment"

@@ -41,7 +41,8 @@ namespace PropertyManagement
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            await RetrieveAndFilterAppointmentsAsync();
+            string initialStatus = ((ComboBoxItem)StatusFilterComboBox.SelectedItem).Content.ToString();
+            await RetrieveAndFilterAppointmentsAsync(initialStatus);
         }
 
 
@@ -52,7 +53,7 @@ namespace PropertyManagement
 
 
 
-        public async Task RetrieveAndFilterAppointmentsAsync()
+        public async Task RetrieveAndFilterAppointmentsAsync(string selectedStatus = "All")
         {
             var allAppointments = await _firebaseClient
                 .Child("appointments")
@@ -60,8 +61,16 @@ namespace PropertyManagement
 
             FilteredAppointments.Clear();
 
-            var orderedAppointments = allAppointments
-                .Where(a => a.Object.PropertyId == GlobalData.property.Id)
+            var filteredAppointments = allAppointments
+                .Where(a => a.Object.PropertyId == GlobalData.property.Id);
+
+            if (selectedStatus != "All")
+            {
+                filteredAppointments = filteredAppointments
+                    .Where(a => a.Object.Status == selectedStatus);
+            }
+
+            var orderedAppointments = filteredAppointments
                 .OrderBy(a => DateTime.ParseExact(a.Object.StartDate, "dd-MM-yyyy", CultureInfo.InvariantCulture))
                 .ThenBy(a => TimeSpan.Parse(a.Object.StartTime))
                 .Select(a => a.Object);
@@ -73,6 +82,8 @@ namespace PropertyManagement
 
             AppointmentListView.ItemsSource = FilteredAppointments;
         }
+
+
 
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -94,5 +105,18 @@ namespace PropertyManagement
 
             }
         }
+
+
+        private async void StatusFilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox == null) return;
+
+            string selectedItem = (comboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            if (selectedItem == null) return;
+
+            await RetrieveAndFilterAppointmentsAsync(selectedItem);
+        }
+
     }
 }
