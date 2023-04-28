@@ -41,8 +41,9 @@ namespace PropertyManagement
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            string searchQuery = SearchTextBox.Text;
             string initialStatus = ((ComboBoxItem)StatusFilterComboBox.SelectedItem).Content.ToString();
-            await RetrieveAndFilterAppointmentsAsync(initialStatus);
+            await RetrieveAndFilterAppointmentsAsync(searchQuery, initialStatus);
         }
 
 
@@ -53,7 +54,7 @@ namespace PropertyManagement
 
 
 
-        public async Task RetrieveAndFilterAppointmentsAsync(string selectedStatus = "All")
+        public async Task RetrieveAndFilterAppointmentsAsync(string searchQuery, string selectedStatus)
         {
             var allAppointments = await _firebaseClient
                 .Child("appointments")
@@ -70,6 +71,13 @@ namespace PropertyManagement
                     .Where(a => a.Object.Status == selectedStatus);
             }
 
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                filteredAppointments = filteredAppointments
+                    .Where(a => a.Object.Title.Contains(searchQuery, StringComparison.OrdinalIgnoreCase) ||
+                                a.Object.Description.Contains(searchQuery, StringComparison.OrdinalIgnoreCase));
+            }
+
             var orderedAppointments = filteredAppointments
                 .OrderBy(a => DateTime.ParseExact(a.Object.StartDate, "dd-MM-yyyy", CultureInfo.InvariantCulture))
                 .ThenBy(a => TimeSpan.Parse(a.Object.StartTime))
@@ -81,6 +89,13 @@ namespace PropertyManagement
             }
 
             AppointmentListView.ItemsSource = FilteredAppointments;
+        }
+
+        private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchQuery = SearchTextBox.Text;
+            string selectedStatus = ((ComboBoxItem)StatusFilterComboBox.SelectedItem).Content.ToString();
+            await RetrieveAndFilterAppointmentsAsync(searchQuery, selectedStatus);
         }
 
 
@@ -115,8 +130,10 @@ namespace PropertyManagement
             string selectedItem = (comboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
             if (selectedItem == null) return;
 
-            await RetrieveAndFilterAppointmentsAsync(selectedItem);
+            string searchQuery = SearchTextBox.Text;
+            await RetrieveAndFilterAppointmentsAsync(searchQuery, selectedItem);
         }
+
 
     }
 }

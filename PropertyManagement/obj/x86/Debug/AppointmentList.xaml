@@ -33,19 +33,27 @@
                 Margin="10,10,0,10" />
 
             <StackPanel Orientation="Horizontal" Grid.Column="1">
-                <ComboBox x:ConnectionId='13' x:Name="StatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10,10,20,10"                                                          SelectedIndex="0" Header="Status">
+                <TextBox x:ConnectionId='13'
+                    x:Name="SearchTextBox"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="10,10,20,10"
+                    Header="Search"
+                    PlaceholderText="Search appointments"
+                                                            />
+                <ComboBox x:ConnectionId='14' x:Name="StatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10,10,20,10"                                                          SelectedIndex="0" Header="Status">
                     <ComboBoxItem Content="All" />
                     <ComboBoxItem Content="In Progress" />
                     <ComboBoxItem Content="Pending" />
                     <ComboBoxItem Content="Completed" />
                 </ComboBox>
-                <Button x:ConnectionId='14'
+                <Button x:ConnectionId='15'
                 x:Name="AddAppointmentButton"
                 Content="Add Appointment"
                 Margin="0,10,10,10"
                                                    />
 
-                <Button x:ConnectionId='15'
+                <Button x:ConnectionId='16'
                 x:Name="BackButton"
                 Content="Back"
                 Margin="10,10,10,10"
