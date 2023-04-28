@@ -3,9 +3,6 @@ using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using FirebaseAdmin;
-using Google.Apis.Auth.OAuth2;
-using FirebaseAdmin.Auth;
 
 
 namespace PropertyManagement

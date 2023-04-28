@@ -192,6 +192,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\company_logo.jpeg" />
     <Content Include="Assets\maintenance_icon.png" />
     <Content Include="Assets\tenant_avatar.png" />
     <Content Include="Properties\Default.rd.xml" />

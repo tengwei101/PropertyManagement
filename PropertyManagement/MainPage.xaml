@@ -8,13 +8,26 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Padding="100">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Margin="30">
+        <Image
+        Grid.Row="0"
+        Grid.Column="0"
+        Source="Assets/company_logo.jpeg"
+        Stretch="Uniform"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Margin="20"/>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="30">
             <TextBlock Text="Property Management" FontSize="30" FontWeight="Bold" Margin="0,0,0,20"/>
             <TextBox x:Name="EmailTextBox" Header="Email" PlaceholderText="Enter your email" Margin="0,0,0,10"/>
             <PasswordBox x:Name="PasswordBox" Header="Password" PlaceholderText="Enter your password" Margin="0,0,0,10"/>
@@ -23,6 +36,6 @@
             <Button x:Name="ForgotPasswordButton" Content="Forgot Password" Click="ForgotPasswordButton_Click" Margin="0,0,0,10"/>
             <TextBlock x:Name="StatusTextBlock" Text="" TextWrapping="Wrap" Foreground="White"/>
         </StackPanel>
-
     </Grid>
+
 </Page>
