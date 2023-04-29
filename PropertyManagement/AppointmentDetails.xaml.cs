@@ -20,6 +20,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Net;
 using System.Net.Mail;
+using System.Globalization;
+using System.Text;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -172,20 +174,44 @@ namespace PropertyManagement
                     $"Status: {appointment.Status}\n\n" +
                     $"Best Regards";
 
+                // Create the iCalendar event
+                StringBuilder icsBuilder = new StringBuilder();
+                icsBuilder.AppendLine("BEGIN:VCALENDAR");
+                icsBuilder.AppendLine("VERSION:2.0");
+                icsBuilder.AppendLine("PRODID:-//RAD Property Management//Appointment Notification");
+                icsBuilder.AppendLine("BEGIN:VEVENT");
+
+                DateTime startDateTime = DateTime.ParseExact(appointment.StartDate + " " + appointment.StartTime, "dd-MM-yyyy HH:mm", CultureInfo.InvariantCulture);
+                TimeSpan duration = TimeSpan.Parse(appointment.Duration);
+
+                icsBuilder.AppendLine($"DTSTART:{startDateTime.ToUniversalTime():yyyyMMddTHHmmssZ}");
+                icsBuilder.AppendLine($"DTEND:{(startDateTime + duration).ToUniversalTime():yyyyMMddTHHmmssZ}");
+                icsBuilder.AppendLine($"SUMMARY:{appointment.Title}");
+                icsBuilder.AppendLine($"DESCRIPTION:{appointment.Description}");
+                icsBuilder.AppendLine($"LOCATION:{appointment.Location}");
+                icsBuilder.AppendLine("END:VEVENT");
+                icsBuilder.AppendLine("END:VCALENDAR");
+
+                // Create a MemoryStream from the iCalendar event
+                MemoryStream icsStream = new MemoryStream(Encoding.UTF8.GetBytes(icsBuilder.ToString()));
+
                 // Configure the SMTP client
                 var smtp = new SmtpClient
                 {
-                    Host = "smtp.gmail.com", // Replace with your SMTP server
-                    Port = 587, // The port number can vary depending on your email provider
+                    Host = "smtp.gmail.com",
+                    Port = 587,
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, "rempuymspwcvmfqr")
+                    Credentials = new NetworkCredential(fromAddress.Address, "mmpgyqwtfawxlpvf")
                 };
 
                 // Create the email message and send it
                 using (var message = new MailMessage(fromAddress, toAddress) { Subject = subject, Body = body })
                 {
+                    // Attach the iCalendar event
+                    message.Attachments.Add(new System.Net.Mail.Attachment(icsStream, "Property Appointment.ics", "text/calendar"));
+
                     await smtp.SendMailAsync(message);
                 }
 
@@ -198,6 +224,7 @@ namespace PropertyManagement
                 await messageDialog.ShowAsync();
             }
         }
+
 
     }
 

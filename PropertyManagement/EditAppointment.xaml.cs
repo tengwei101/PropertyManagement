@@ -199,6 +199,7 @@ namespace PropertyManagement
 
         private async void UpdateAppointmentButton_Click(object sender, RoutedEventArgs e)
         {
+
             appointment.Title = TitleTextBox.Text;
             appointment.Description = DescriptionTextBox.Text;
             appointment.StartDate = StartDatePicker.Date.DateTime.ToString("dd-MM-yyyy");
@@ -208,21 +209,32 @@ namespace PropertyManagement
             appointment.Attendees = attendees;
             appointment.Status = (StatusComboBox.SelectedItem as ComboBoxItem).Content.ToString();
 
+
             try
             {
-                // Update the appointment in Firebase
-                await firebaseClient
-                    .Child("appointments")
-                    .Child(appointment.Id)
-                    .PutAsync(appointment);
+                // Check if all necessary fields are filled in
+                if (string.IsNullOrEmpty(TitleTextBox.Text) || string.IsNullOrEmpty(DescriptionTextBox.Text) ||
+                    string.IsNullOrEmpty(LocationTextBox.Text) || StatusComboBox.SelectedIndex == -1)
+                {
+                    DisplayDialog("Error", "Please fill in all required fields.");
+                    return;
+                }
+                else
+                {
+                    // Update the appointment in Firebase
+                    await firebaseClient
+                        .Child("appointments")
+                        .Child(appointment.Id)
+                        .PutAsync(appointment);
 
-                // Display a message to inform the user that the appointment has been updated
-                DisplayDialog("Success", "Appointment has been updated.");
+                    // Display a message to inform the user that the appointment has been updated
+                    DisplayDialog("Success", "Appointment has been updated.");
 
-                GlobalData.appointment = appointment;
+                    GlobalData.appointment = appointment;
 
-                // Navigate back to the appointment list
-                Frame.Navigate(typeof(AppointmentDetails));
+                    // Navigate back to the appointment list
+                    Frame.Navigate(typeof(AppointmentDetails));
+                }
             }
             catch (Exception ex)
             {

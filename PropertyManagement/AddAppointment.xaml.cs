@@ -51,6 +51,14 @@ namespace PropertyManagement
 
         private async void AddAppointmentButton_Click(object sender, RoutedEventArgs e)
         {
+            // Check if all necessary fields are filled in
+            if (string.IsNullOrEmpty(TitleTextBox.Text) || string.IsNullOrEmpty(DescriptionTextBox.Text) ||
+                string.IsNullOrEmpty(LocationTextBox.Text) || StatusComboBox.SelectedIndex == -1)
+            {
+                DisplayDialog("Error", "Please fill in all required fields.");
+                return;
+            }
+
             // Create a new appointment with the entered data
             Appointment appointment = new Appointment
             {
