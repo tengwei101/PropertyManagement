@@ -203,49 +203,40 @@ namespace PropertyManagement
             {
                 string localFilename = $"{_selectedTenant.Name}-ContractFile.pdf"; // Set the file name as per your requirement
 
-                // Use FolderPicker to let the user choose a folder to save the downloaded file
-                FolderPicker folderPicker = new FolderPicker
+                // Use the Downloads folder as the destination for the downloaded file
+                StorageFolder localFolder = await DownloadsFolder.CreateFolderAsync("Tenant Contract", CreationCollisionOption.GenerateUniqueName);
+                StorageFile localFile = await localFolder.CreateFileAsync(localFilename, CreationCollisionOption.GenerateUniqueName);
+
+                using (HttpClient httpClient = new HttpClient())
                 {
-                    SuggestedStartLocation = PickerLocationId.DocumentsLibrary
-                };
-                folderPicker.FileTypeFilter.Add("*");
+                    HttpResponseMessage response = await httpClient.GetAsync(_selectedTenant.ContractFile);
 
-                StorageFolder localFolder = await folderPicker.PickSingleFolderAsync();
-
-                if (localFolder != null)
-                {
-                    StorageFile localFile = await localFolder.CreateFileAsync(localFilename, CreationCollisionOption.GenerateUniqueName);
-
-                    using (HttpClient httpClient = new HttpClient())
+                    if (response.IsSuccessStatusCode)
                     {
-                        HttpResponseMessage response = await httpClient.GetAsync(_selectedTenant.ContractFile);
-
-                        if (response.IsSuccessStatusCode)
+                        using (Stream remoteStream = await response.Content.ReadAsStreamAsync())
                         {
-                            using (Stream remoteStream = await response.Content.ReadAsStreamAsync())
+                            using (Stream localStream = await localFile.OpenStreamForWriteAsync())
                             {
-                                using (Stream localStream = await localFile.OpenStreamForWriteAsync())
-                                {
-                                    await remoteStream.CopyToAsync(localStream);
-                                }
+                                await remoteStream.CopyToAsync(localStream);
                             }
                         }
-                        else
-                        {
-                            // Handle error response
-                            DisplayDialog("Error", "Failed to download the contract file");
-                        }
                     }
-
-                    // Notify user about the downloaded file
-                    DisplayDialog("Download Completed", $"The contract file has been downloaded to the selected folder as {localFile.Name}");
+                    else
+                    {
+                        // Handle error response
+                        DisplayDialog("Error", "Failed to download the contract file");
+                    }
                 }
+
+                // Notify user about the downloaded file
+                DisplayDialog("Download Completed", $"The contract file has been downloaded to the Downloads folder as {localFile.Name}");
             }
             else
             {
                 DisplayDialog("Missing File", "This Tenant has no contract file.");
             }
         }
+
 
 
     }
