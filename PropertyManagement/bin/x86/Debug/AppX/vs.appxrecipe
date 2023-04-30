@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-30T16:02:07.020</Modified>
+      <Modified>2023-04-30T16:09:01.924</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\PropertyManagement.exe">
       <PackagePath>entrypoint\PropertyManagement.exe</PackagePath>
-      <Modified>2023-04-30T16:02:06.100</Modified>
+      <Modified>2023-04-30T16:09:00.908</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\.nuget\packages\firebaseadmin\2.3.0\lib\netstandard2.0\FirebaseAdmin.dll">
       <PackagePath>FirebaseAdmin.dll</PackagePath>
@@ -178,83 +178,83 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.760</Modified>
+      <Modified>2023-04-30T16:09:00.491</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddAppointment.xbf">
       <PackagePath>AddAppointment.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.761</Modified>
+      <Modified>2023-04-30T16:09:00.492</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddAttendee.xbf">
       <PackagePath>AddAttendee.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.761</Modified>
+      <Modified>2023-04-30T16:09:00.492</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddMaintenanceRequest.xbf">
       <PackagePath>AddMaintenanceRequest.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.761</Modified>
+      <Modified>2023-04-30T16:09:00.493</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddProperty.xbf">
       <PackagePath>AddProperty.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.761</Modified>
+      <Modified>2023-04-30T16:09:00.493</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AddTenant.xbf">
       <PackagePath>AddTenant.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.762</Modified>
+      <Modified>2023-04-30T16:09:00.494</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AppointmentDetails.xbf">
       <PackagePath>AppointmentDetails.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.762</Modified>
+      <Modified>2023-04-30T16:09:00.494</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\AppointmentList.xbf">
       <PackagePath>AppointmentList.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.762</Modified>
+      <Modified>2023-04-30T16:09:00.494</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditAppointment.xbf">
       <PackagePath>EditAppointment.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.762</Modified>
+      <Modified>2023-04-30T16:09:00.495</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditAttendee.xbf">
       <PackagePath>EditAttendee.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.762</Modified>
+      <Modified>2023-04-30T16:09:00.495</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditMaintenanceRequest.xbf">
       <PackagePath>EditMaintenanceRequest.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.763</Modified>
+      <Modified>2023-04-30T16:09:00.497</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditProperty.xbf">
       <PackagePath>EditProperty.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.763</Modified>
+      <Modified>2023-04-30T16:09:00.498</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\EditTenant.xbf">
       <PackagePath>EditTenant.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.763</Modified>
+      <Modified>2023-04-30T16:09:00.498</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.763</Modified>
+      <Modified>2023-04-30T16:09:00.499</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\MaintenanceAndRepair.xbf">
       <PackagePath>MaintenanceAndRepair.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.764</Modified>
+      <Modified>2023-04-30T16:09:00.500</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\MaintenanceRequestDetails.xbf">
       <PackagePath>MaintenanceRequestDetails.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.764</Modified>
+      <Modified>2023-04-30T16:09:00.502</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\Property.xbf">
       <PackagePath>Property.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.764</Modified>
+      <Modified>2023-04-30T16:09:00.503</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\PropertyDetails.xbf">
       <PackagePath>PropertyDetails.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.765</Modified>
+      <Modified>2023-04-30T16:09:00.504</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\TenantDetails.xbf">
       <PackagePath>TenantDetails.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.765</Modified>
+      <Modified>2023-04-30T16:09:00.504</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\TenantsList.xbf">
       <PackagePath>TenantsList.xbf</PackagePath>
-      <Modified>2023-04-30T16:02:05.765</Modified>
+      <Modified>2023-04-30T16:09:00.505</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -266,7 +266,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Acer\source\repos\PropertyManagement\PropertyManagement\bin\x86\Debug\Core\PropertyManagement.exe">
       <PackagePath>PropertyManagement.exe</PackagePath>
-      <Modified>2023-04-30T16:02:07.006</Modified>
+      <Modified>2023-04-30T16:09:01.919</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

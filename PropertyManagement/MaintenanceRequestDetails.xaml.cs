@@ -89,6 +89,7 @@ namespace PropertyManagement
 
             string message = $"Hello! Your maintenance request has been solved.\n\n" +
                              $"Tenant: {_selectedRequest.TenantName}\n" +
+                             $"Property: {GlobalData.property.PropertyName}\n" +
                              $"Description: {_selectedRequest.Description}\n" +
                              $"Status: {_selectedRequest.Status}";
 
