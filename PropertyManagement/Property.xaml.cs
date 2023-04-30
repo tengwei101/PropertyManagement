@@ -67,7 +67,7 @@ namespace PropertyManagement
             catch (Exception ex)
             {
                 // Handle exceptions
-                DisplayDialog("Error", ex.Message);
+                DisplayDialog("Notification", "There is no property in the database.");
             }
         }
 

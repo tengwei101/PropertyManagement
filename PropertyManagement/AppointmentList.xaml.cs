@@ -89,6 +89,7 @@ namespace PropertyManagement
             }
 
             AppointmentListView.ItemsSource = FilteredAppointments;
+
         }
 
         private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)

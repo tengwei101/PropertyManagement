@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using Firebase.Auth;
 using System.Threading.Tasks;
 using Firebase.Auth.Providers;
+using System.Text.RegularExpressions;
 
 
 
@@ -43,21 +44,42 @@ namespace PropertyManagement
 
         private async void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            await CreateUserAsync(EmailTextBox.Text, PasswordBox.Password);
+            // Validate password requirements
+            string password = PasswordBox.Password;
+            string passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
+            if (!Regex.IsMatch(password, passwordPattern))
+            {
+                DisplayDialog("Invalid Input", "Password must have at least one uppercase letter, one lowercase letter, one digit, and be at least 8 characters long.");
+                return;
+            }
+
+            await CreateUserAsync(EmailTextBox.Text, password);
         }
+
+        private async void DisplayDialog(string title, string context)
+        {
+            ContentDialog contentDialog = new ContentDialog
+            {
+                Title = title,
+                Content = context,
+                CloseButtonText = "OK",
+            };
+            ContentDialogResult result = await contentDialog.ShowAsync();
+        }
+
 
         private async Task SignInAsync(string email, string password)
         {
             try
             {
                 var auth = await _auth.SignInAsync(email, password);
-                StatusTextBlock.Text = $"Logged in successfully: {auth.Email}";
+                DisplayDialog("Success", $"Logged in successfully: {auth.Email}");
                 Frame.Navigate(typeof(Property));
 
             }
             catch (Exception ex)
             {
-                StatusTextBlock.Text = $"Login failed: {ex.Message}";
+                DisplayDialog("Failed", $"Login failed: Wrong email or password, Please try again.");
             }
         }
 
@@ -66,11 +88,12 @@ namespace PropertyManagement
             try
             {
                 var auth = await _auth.CreateUserAsync(email, password);
-                StatusTextBlock.Text = $"User registered successfully: {auth.Email}";
+                DisplayDialog("Success", $"User registered successfully: {auth.Email}");
             }
             catch (Exception ex)
             {
                 StatusTextBlock.Text = $"Registration failed: {ex.Message}";
+                DisplayDialog("Failed", $"Please ensure the format of email {email} is correct");
             }
         }
 
@@ -97,11 +120,11 @@ namespace PropertyManagement
             try
             {
                 await _auth.SendPasswordResetEmailAsync(email);
-                StatusTextBlock.Text = $"Password reset email sent to {email}.";
+                DisplayDialog("Success", $"Password reset email sent to {email}.");
             }
             catch (Exception ex)
             {
-                StatusTextBlock.Text = $"Failed to send password reset email: {ex.Message}";
+                DisplayDialog("Failed", $"Failed to send password reset email, Please make sure the email {email} is exist and valid");
             }
         }
 

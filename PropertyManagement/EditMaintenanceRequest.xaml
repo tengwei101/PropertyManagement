@@ -20,6 +20,7 @@
 
             <StackPanel Grid.Row="1" Margin="20">
                 <TextBox x:Name="TenantNameTextBox" Header="Tenant Name" Margin="0,0,0,10"/>
+                <TextBox x:Name="TenantPhoneTextBox" Header="Tenant Phone Number" Margin="0,0,0,10"/>
                 <TextBox x:Name="DescriptionTextBox" Header="Description" Margin="0,0,0,10" AcceptsReturn="True" TextWrapping="Wrap" Height="100"/>
                 <ComboBox x:Name="PriorityComboBox" Header="Priority" Margin="0,0,0,10">
                     <ComboBoxItem Content="Low"/>

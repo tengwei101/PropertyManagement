@@ -22,6 +22,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -45,6 +46,10 @@ namespace PropertyManagement
 
         private async void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
+            // Validate phone number format
+            string phoneNumber = TenantPhoneTextBox.Text;
+            string phonePattern = @"^01\d{8,9}$";
+
             if (string.IsNullOrWhiteSpace(TenantNameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(DescriptionTextBox.Text) ||
                 PriorityComboBox.SelectedIndex == -1 ||
@@ -52,6 +57,11 @@ namespace PropertyManagement
                 !submissionDatePickerChanged)
             {
                 DisplayDialog("Invalid Input", "Please Enter all necessary details");
+            }
+            else if (!Regex.IsMatch(phoneNumber, phonePattern))
+            {
+                DisplayDialog("Invalid Input", "Phone number format is incorrect. Please enter a valid phone number (01XXXXXXXX).");
+                return;
             }
             else
             {
@@ -75,6 +85,7 @@ namespace PropertyManagement
                     {
                         Id = "",
                         TenantName = TenantNameTextBox.Text, // Assuming the tenant name text box contains the tenant's ID
+                        TenantPhone = TenantPhoneTextBox.Text,
                         PropertyId = GlobalData.property.Id,
                         Description = DescriptionTextBox.Text,
                         Priority = (PriorityComboBox.SelectedItem as ComboBoxItem).Content.ToString(),
@@ -105,6 +116,7 @@ namespace PropertyManagement
                     }
 
                     TenantNameTextBox.Text = string.Empty;
+                    TenantPhoneTextBox.Text = string.Empty;
                     DescriptionTextBox.Text = string.Empty;
                     PriorityComboBox.SelectedIndex = -1;
                     StatusComboBox.SelectedIndex = -1;

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -52,6 +53,22 @@ namespace PropertyManagement
                 if (newStatus == "Completed")
                 {
                     _selectedRequest.CompletionDate = DateTime.Now.ToString();
+
+                    // Show the dialog asking the user if they want to send a WhatsApp message
+                    ContentDialog sendWhatsAppDialog = new ContentDialog
+                    {
+                        Title = "Send WhatsApp Message",
+                        Content = "Do you want to send a WhatsApp message to the tenant to inform them that their maintenance request has been solved?",
+                        PrimaryButtonText = "Yes",
+                        SecondaryButtonText = "No"
+                    };
+
+                    ContentDialogResult result = await sendWhatsAppDialog.ShowAsync();
+
+                    if (result == ContentDialogResult.Primary)
+                    {
+                        await SendMessageToTenantAsync(_selectedRequest.TenantPhone);
+                    }
                 }
                 else
                 {
@@ -61,6 +78,32 @@ namespace PropertyManagement
                 await UpdateRequestInFirebaseDatabaseAsync(_selectedRequest.Id, _selectedRequest);
             }
         }
+
+        private async Task SendMessageToTenantAsync(string phoneNumber)
+        {
+            if (string.IsNullOrEmpty(phoneNumber))
+            {
+                DisplayDialog("Error", "Missing Tenant Phone Number...");
+                return;
+            }
+
+            string message = $"Hello! Your maintenance request has been solved.\n\n" +
+                             $"Tenant: {_selectedRequest.TenantName}\n" +
+                             $"Description: {_selectedRequest.Description}\n" +
+                             $"Status: {_selectedRequest.Status}";
+
+            string encodedMessage = Uri.EscapeDataString(message);
+            string whatsappUrl = $"https://api.whatsapp.com/send?phone=+6{phoneNumber}&text={encodedMessage}";
+
+            var success = await Launcher.LaunchUriAsync(new Uri(whatsappUrl));
+
+            if (!success)
+            {
+                DisplayDialog("Error", "Failed to launch WhatsApp.");
+            }
+        }
+
+
 
         private async Task UpdateRequestInFirebaseDatabaseAsync(string requestId, MaintenanceRequest request)
         {

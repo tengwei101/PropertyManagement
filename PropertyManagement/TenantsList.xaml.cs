@@ -86,7 +86,7 @@ namespace PropertyManagement
             }
             catch (Exception ex)
             {
-                DisplayDialog("Error", ex.Message);
+                DisplayDialog("Notification", "There is no tenant in this property.");
             }
         }
 

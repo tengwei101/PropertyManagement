@@ -22,6 +22,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using System.Text.RegularExpressions;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -52,6 +53,15 @@ namespace PropertyManagement
             DescriptionTextBox.Text = maintenanceRequest.Description;
             SetPriority(maintenanceRequest.Priority);
             SetStatus(maintenanceRequest.Status);
+
+            if(maintenanceRequest.TenantPhone != null)
+            {
+                TenantPhoneTextBox.Text = maintenanceRequest.TenantPhone;
+            }
+            else
+            {
+                TenantPhoneTextBox.Text = string.Empty;
+            }
 
             if (DateTime.TryParse(maintenanceRequest.SubmissionDate, out DateTime submissionDate))
             {
@@ -114,6 +124,7 @@ namespace PropertyManagement
             string description = DescriptionTextBox.Text;
             string priority = (PriorityComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
             string status = (StatusComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            string tenanatPhoneNumber = TenantPhoneTextBox.Text;
 
             if (!string.IsNullOrEmpty(imageUrl))
             {
@@ -147,11 +158,21 @@ namespace PropertyManagement
                 return;
             }
 
+            string phoneNumber = TenantPhoneTextBox.Text;
+            string phonePattern = @"^01\d{8,9}$";
+
+            if (!Regex.IsMatch(phoneNumber, phonePattern))
+            {
+                DisplayDialog("Invalid Input", "Phone number format is incorrect. Please enter a valid phone number (01XXXXXXXX).");
+                return;
+            }
+
 
             MaintenanceRequest updatedRequest = new MaintenanceRequest
             {
                 Id = GlobalData.maintenanceRequest.Id,
                 TenantName = tenantName,
+                TenantPhone = tenanatPhoneNumber,
                 Description = description,
                 Priority = priority,
                 Status = status,
@@ -159,6 +180,7 @@ namespace PropertyManagement
                 CompletionDate = completeDate,
                 ImageUrl = imageUrl, // Assuming the image is not changed
                 PropertyId = GlobalData.property.Id
+
             };
 
             try

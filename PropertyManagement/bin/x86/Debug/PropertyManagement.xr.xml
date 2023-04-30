@@ -15,6 +15,7 @@
     <RootPropertyPathName Name="TenantName" />
     <RootPropertyPathName Name="ImageUrl" />
     <RootPropertyPathName Name="Content" />
+    <RootPropertyPathName Name="TenantPhone" />
     <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="SquareFeet" />

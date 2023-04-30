@@ -40,9 +40,16 @@ namespace PropertyManagement
             await LoadMaintenanceRequestsAsync();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            if (_isPageLoaded)
+            {
+                string statusFilter = (RequestStatusFilterComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? "All";
+                string priorityFilter = (PriorityFilterComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? "All";
+                await LoadMaintenanceRequestsAsync(statusFilter, priorityFilter);
+            }
         }
 
         private async Task LoadMaintenanceRequestsAsync(string requestStatusFilter = "All", string priorityFilter = "All")
@@ -86,7 +93,7 @@ namespace PropertyManagement
             }
             catch (Exception ex)
             {
-                DisplayDialog("Error", ex.Message);
+                DisplayDialog("Notification", "There is no maintainence request in this property.");
             }
         }
 
@@ -128,7 +135,7 @@ namespace PropertyManagement
                 Content = content,
                 CloseButtonText = "OK"
             };
-            await dialog.ShowAsync();
+            ContentDialogResult result = await dialog.ShowAsync();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

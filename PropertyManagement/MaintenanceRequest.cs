@@ -11,6 +11,7 @@ namespace PropertyManagement
     {
         public string Id { get; set; }
         public string TenantName { get; set; }
+        public string TenantPhone { get; set; }
         public string PropertyId { get; set; }
         public string Description { get; set; }
         public string Priority { get; set; }
