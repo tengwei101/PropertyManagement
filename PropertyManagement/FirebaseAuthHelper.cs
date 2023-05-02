@@ -89,24 +89,31 @@ namespace PropertyManagement
         }
 
 
-public async Task SendPasswordResetEmailAsync(string email)
-{
-    try
-    {
-        using (var client = new HttpClient())
+        public async Task SendPasswordResetEmailAsync(string email)
         {
-            var request = new { requestType = "PASSWORD_RESET", email = email };
-            var json = JsonConvert.SerializeObject(request);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync($"https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key={_apiKey}", content);
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var request = new { requestType = "PASSWORD_RESET", email = email };
+                    var json = JsonConvert.SerializeObject(request);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync($"https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key={_apiKey}", content);
+                    response.EnsureSuccessStatusCode();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-    }
-    catch (Exception ex)
-    {
-        throw ex;
-    }
-}
+
+        public void SignOut()
+        {
+            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values.Remove("AuthToken");
+            localSettings.Values.Remove("UserEmail");
+        }
 
 
     }

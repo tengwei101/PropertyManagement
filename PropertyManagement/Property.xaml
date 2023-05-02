@@ -78,6 +78,8 @@
             </ComboBox>
 
             <Button x:Name="AddButton" Content="Add Property" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="20,10,10,10" Click="AddButton_Click"/>
+            <Button x:Name="LogoutButton" Content="Logout" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Margin="20,10,10,10" Click="LogoutButton_Click"/>
+
         </StackPanel>
         
         <ListView x:Name="PropertyListView" Grid.Row="1" Margin="10" ItemTemplate="{StaticResource PropertyItemTemplate}" SelectionChanged="PropertyListView_SelectionChanged"/>

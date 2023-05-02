@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FirebaseAdmin.Auth;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +18,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,10 +29,12 @@ namespace PropertyManagement
     /// </summary>
     public sealed partial class Property : Page
     {
+        private FirebaseAuthHelper _authHelper;
         public Property()
         {
             this.InitializeComponent();
             LoadPropertiesAsync();
+            _authHelper = new FirebaseAuthHelper(GlobalData.firebaseAuthentication);
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -103,6 +107,37 @@ namespace PropertyManagement
             string propertyStatusFilter = selectedItem.Content.ToString();
 
             await LoadPropertiesAsync(propertyStatusFilter);
+        }
+
+        private async void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Show the logout confirmation dialog and check if the user confirms
+            bool shouldLogout = await ShowLogoutConfirmationDialog();
+
+            if (shouldLogout)
+            {
+                // Call the SignOut method to remove the authentication token and user information
+                _authHelper.SignOut();
+
+                // Navigate back to the login page
+                Frame.Navigate(typeof(MainPage)); // Replace LoginPage with the name of your actual login page class
+            }
+        }
+
+
+        private async Task<bool> ShowLogoutConfirmationDialog()
+        {
+            ContentDialog logoutConfirmationDialog = new ContentDialog
+            {
+                Title = "Confirm Logout",
+                Content = "Are you sure you want to log out?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No"
+            };
+
+            ContentDialogResult result = await logoutConfirmationDialog.ShowAsync();
+
+            return result == ContentDialogResult.Primary;
         }
 
     }
