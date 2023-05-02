@@ -30,6 +30,8 @@ namespace PropertyManagement
     public sealed partial class Property : Page
     {
         private FirebaseAuthHelper _authHelper;
+        public ObservableCollection<Property> FilteredProperty { get; set; } = new ObservableCollection<Property>();
+
         public Property()
         {
             this.InitializeComponent();
@@ -42,7 +44,7 @@ namespace PropertyManagement
             Frame.Navigate(typeof(AddProperty));
         }
 
-        private async Task LoadPropertiesAsync(string propertyStatusFilter = null)
+        private async Task LoadPropertiesAsync(string propertyStatusFilter = null, string searchText = null)
         {
             try
             {
@@ -65,6 +67,12 @@ namespace PropertyManagement
                 {
                     properties = propertiesDictionary.Values.Where(p => p.PropertyStatus == propertyStatusFilter).ToList();
                 }
+
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    properties = properties.Where(p => p.PropertyName.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                }
+
 
                 PropertyListView.ItemsSource = properties;
             }
@@ -106,7 +114,9 @@ namespace PropertyManagement
             ComboBoxItem selectedItem = comboBox.SelectedItem as ComboBoxItem;
             string propertyStatusFilter = selectedItem.Content.ToString();
 
-            await LoadPropertiesAsync(propertyStatusFilter);
+            string searchText = SearchTextBox.Text;
+
+            await LoadPropertiesAsync(propertyStatusFilter, searchText);
         }
 
         private async void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -138,6 +148,16 @@ namespace PropertyManagement
             ContentDialogResult result = await logoutConfirmationDialog.ShowAsync();
 
             return result == ContentDialogResult.Primary;
+        }
+
+        private async void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox searchTextBox = sender as TextBox;
+            string searchText = searchTextBox.Text;
+
+            string propertyStatusFilter = ((ComboBoxItem)PropertyStatusFilterComboBox.SelectedItem).Content.ToString();
+
+            await LoadPropertiesAsync(propertyStatusFilter, searchText);
         }
 
     }

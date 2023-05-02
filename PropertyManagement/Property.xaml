@@ -69,7 +69,15 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0">
-            <ComboBox x:Name="PropertyStatusFilterComboBox" Grid.Row="0" Grid.Column="0" Margin="10" SelectionChanged="PropertyStatusFilterComboBox_SelectionChanged" SelectedIndex="0">
+            <TextBox
+                    x:Name="SearchTextBox"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="10,10,20,10"
+                    Header="Search"
+                    PlaceholderText="Search property"
+                    TextChanged="SearchTextBox_TextChanged" />
+            <ComboBox x:Name="PropertyStatusFilterComboBox" Header="Status" Grid.Row="0" Grid.Column="0" Margin="10" SelectionChanged="PropertyStatusFilterComboBox_SelectionChanged" SelectedIndex="0">
                 <ComboBoxItem Content="All" />
                 <ComboBoxItem Content="Available" />
                 <ComboBoxItem Content="Sold" />
